@@ -4,9 +4,9 @@ Identify different technical strategies and products, their strengths and weakne
 
 ## Plan
 
-- [ ] Summarize the historic context of web development
-- [ ] Identify main goals that strategies and technologies should achieve
-- [ ] Identify main strategies and architectures and representative technologies
+- [x] Summarize the historic context of web development
+- [x] Identify main goals that strategies and technologies should achieve
+- [x] Identify main strategies and architectures and representative technologies
 - [ ] Establish measuring solutions for the goals
 - [ ] Develop a small sample application for every chosen architecture/strategy
 - [ ] Measure them against the identified goals
