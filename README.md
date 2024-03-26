@@ -11,4 +11,3 @@ Identify different technical strategies and products, their strengths and weakne
 - [ ] Develop a small sample application for every chosen architecture/strategy
 - [ ] Measure them against the identified goals
 - [ ] Document the results
-

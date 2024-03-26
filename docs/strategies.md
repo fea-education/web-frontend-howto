@@ -22,7 +22,7 @@ Hydration refers to the process of making a server-rendered website interactive 
 
 Islands architecture is an approach that aims to reduce the JavaScript footprint in web applications by explicitly specifying what components should be sent to the client. It allows for selective rendering of components, resulting in smaller bundle sizes and improved performance. The strengths of Islands architecture include reduced JavaScript payload, faster initial page load times, and improved scalability. However, it may introduce added complexity, especially when combined with server components, and requires careful management of state preservation and routing.
 
-**Representaives**: [Astro](https://astro.build/), [HTMX](https://htmx.org/), *Any traditional server-side rendered MPAs, that included JavaScript to fetch HTML content (Ajax) to update the DOM followed this principle years ago*
+**Representaives**: [Astro](https://astro.build/), [HTMX](https://htmx.org/), _Any traditional server-side rendered MPAs, that included JavaScript to fetch HTML content (Ajax) to update the DOM followed this principle years ago_
 
 ## Resumability
 
