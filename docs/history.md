@@ -2,7 +2,7 @@
 
 Multi-Page Apps (MPAs) were the earliest architecture used on the web, relying on server-side rendering. As the web evolved, the need for more interactivity and improved user experience led to the transition over Progressively Enhanced Multi-Page Apps (PEMPAs, aka "JavaScript Sprinkles"), which relied on server-side rendering and client-side fetching of HTML (Ajax) to Single Page Apps (SPAs), which separated the UI code from the backend. SPAs only fetch data and render the HTML on the client side. However, SPAs have their own trade-offs, such as slower initial load times and SEO challenges. The next transition in web development architecture is currently underway, aiming to address the limitations of SPAs and MPAs.
 
-*(Source: [Kent C. Dodds - The Web’s Next Transition](https://www.epicweb.dev/the-webs-next-transition))*
+_(Source: [Kent C. Dodds - The Web’s Next Transition](https://www.epicweb.dev/the-webs-next-transition))_
 
 ## Present
 
