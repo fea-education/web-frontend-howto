@@ -1,0 +1,136 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro {title}</title>
+  </head>
+  <body>
+    <main
+      class="work-sans bg-white text-base leading-normal tracking-normal text-gray-600"
+    >
+      <slot />
+    </main>
+  </body>
+</html>
+<style is:global>
+  /* Nordic Store utility font */
+  @font-face {
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/worksans/v19/QGYsz_wNahGAdqQ43Rh_cqDptfpA4cD3.woff2)
+      format("woff2");
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
+      U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/worksans/v19/QGYsz_wNahGAdqQ43Rh_fKDptfpA4Q.woff2)
+      format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+      U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+      U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/worksans/v19/QGYsz_wNahGAdqQ43Rh_cqDptfpA4cD3.woff2)
+      format("woff2");
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
+      U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/worksans/v19/QGYsz_wNahGAdqQ43Rh_fKDptfpA4Q.woff2)
+      format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+      U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+      U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  /* Nordic Store global css: https://github.com/tailwindtoolbox/Nordic-Store/blob/master/index.html */
+  .work-sans {
+    font-family: "Work Sans", sans-serif;
+  }
+
+  #menu-toggle:checked + #menu {
+    display: block;
+  }
+
+  .hover\:grow {
+    transition: all 0.3s;
+    transform: scale(1);
+  }
+
+  .hover\:grow:hover {
+    transform: scale(1.02);
+  }
+
+  .carousel-open:checked + .carousel-item {
+    position: static;
+    opacity: 100;
+  }
+
+  .carousel-item {
+    -webkit-transition: opacity 0.6s ease-out;
+    transition: opacity 0.6s ease-out;
+  }
+
+  #carousel-1:checked ~ .control-1,
+  #carousel-2:checked ~ .control-2,
+  #carousel-3:checked ~ .control-3 {
+    display: block;
+  }
+
+  .carousel-indicators {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+  }
+
+  #carousel-1:checked
+    ~ .control-1
+    ~ .carousel-indicators
+    li:nth-child(1)
+    .carousel-bullet,
+  #carousel-2:checked
+    ~ .control-2
+    ~ .carousel-indicators
+    li:nth-child(2)
+    .carousel-bullet,
+  #carousel-3:checked
+    ~ .control-3
+    ~ .carousel-indicators
+    li:nth-child(3)
+    .carousel-bullet {
+    color: #000;
+    /*Set to match the Tailwind colour you want the active one to be */
+  }
+</style>
