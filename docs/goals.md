@@ -37,9 +37,13 @@ Measures the time it takes for the largest content element (e.g., image, text bl
 
 Measures the cumulative sum of all individual layout shift scores that occur during the entire lifespan of the page
 
+### Interaction to Next Paint (INP)
+
+_([Limited Browser Support as of 08.2024](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEventTiming/interactionId#browser_compatibility))_ INP improves on FID by observing all interactions on a page, beginning from the input delay, to the time it takes to run event handlers, and finally up until the browser has painted the next frame.
+
 ### First Input Delay (FID)
 
-Measures the delay between the time when a user interacts with a page (e.g., clicks a button, taps on a link) and the time when the browser responds to that interaction
+_([Succeeded by INP](https://web.dev/articles/inp#inp-vs-fid))_ Measures the delay between the time when a user interacts with a page (e.g., clicks a button, taps on a link) and the time when the browser responds to that interaction
 
 ### Size of Network resources
 
