@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - ShopHub</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="flex items-center justify-between">
+          <a href="index.html" class="navbar-brand">ShopHub</a>
+
+          <ul class="navbar-nav hidden-mobile">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="index.html#categories">Categories</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+
+          <div class="flex items-center">
+            <a href="#search" class="btn btn-secondary btn-sm">Search</a>
+            <a href="checkout.html" class="btn btn-primary btn-sm active"
+              >Cart (3)</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Checkout Progress -->
+    <section class="bg-gray-50 py-4">
+      <div class="container">
+        <div class="flex items-center justify-center">
+          <div class="flex items-center">
+            <div class="flex items-center">
+              <div
+                class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-weight-600"
+              >
+                1
+              </div>
+              <span class="ml-2 text-primary font-weight-600">Cart</span>
+            </div>
+            <div class="w-16 h-1 bg-gray-300 mx-4"></div>
+            <div class="flex items-center">
+              <div
+                class="bg-gray-300 text-gray-600 rounded-full w-8 h-8 flex items-center justify-center text-sm"
+              >
+                2
+              </div>
+              <span class="ml-2 text-gray-600">Shipping</span>
+            </div>
+            <div class="w-16 h-1 bg-gray-300 mx-4"></div>
+            <div class="flex items-center">
+              <div
+                class="bg-gray-300 text-gray-600 rounded-full w-8 h-8 flex items-center justify-center text-sm"
+              >
+                3
+              </div>
+              <span class="ml-2 text-gray-600">Payment</span>
+            </div>
+            <div class="w-16 h-1 bg-gray-300 mx-4"></div>
+            <div class="flex items-center">
+              <div
+                class="bg-gray-300 text-gray-600 rounded-full w-8 h-8 flex items-center justify-center text-sm"
+              >
+                4
+              </div>
+              <span class="ml-2 text-gray-600">Confirmation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checkout Content -->
+    <section class="section">
+      <div class="container">
+        <div class="grid" style="grid-template-columns: 1fr 400px; gap: 3rem">
+          <!-- Main Checkout Form -->
+          <div>
+            <h1 class="text-3xl font-weight-600 mb-8">Checkout</h1>
+
+            <!-- Shopping Cart Items -->
+            <div class="card mb-8">
+              <div class="card-header">
+                <h2 class="text-xl font-weight-600 mb-0">Your Items (3)</h2>
+              </div>
+              <div class="card-body p-0">
+                <!-- Cart Item 1 -->
+                <div class="cart-item">
+                  <div
+                    class="cart-item-image bg-gray-100 flex items-center justify-center"
+                  >
+                    <span class="text-2xl">📱</span>
+                  </div>
+                  <div class="cart-item-info">
+                    <h3 class="cart-item-title">iPhone 15 Pro</h3>
+                    <p class="text-sm text-gray-600">Space Black, 256GB</p>
+                    <div class="cart-item-price">$999.99</div>
+                  </div>
+                  <div class="quantity-selector">
+                    <button class="quantity-btn">-</button>
+                    <input type="number" value="1" class="quantity-input" />
+                    <button class="quantity-btn">+</button>
+                  </div>
+                  <div class="text-right ml-4">
+                    <div class="font-weight-600">$999.99</div>
+                    <button class="text-error text-sm">Remove</button>
+                  </div>
+                </div>
+
+                <!-- Cart Item 2 -->
+                <div class="cart-item">
+                  <div
+                    class="cart-item-image bg-gray-100 flex items-center justify-center"
+                  >
+                    <span class="text-2xl">🎧</span>
+                  </div>
+                  <div class="cart-item-info">
+                    <h3 class="cart-item-title">AirPods Pro</h3>
+                    <p class="text-sm text-gray-600">2nd Generation</p>
+                    <div class="cart-item-price">$199.99</div>
+                  </div>
+                  <div class="quantity-selector">
+                    <button class="quantity-btn">-</button>
+                    <input type="number" value="2" class="quantity-input" />
+                    <button class="quantity-btn">+</button>
+                  </div>
+                  <div class="text-right ml-4">
+                    <div class="font-weight-600">$399.98</div>
+                    <button class="text-error text-sm">Remove</button>
+                  </div>
+                </div>
+
+                <!-- Cart Item 3 -->
+                <div class="cart-item">
+                  <div
+                    class="cart-item-image bg-gray-100 flex items-center justify-center"
+                  >
+                    <span class="text-2xl">⌚</span>
+                  </div>
+                  <div class="cart-item-info">
+                    <h3 class="cart-item-title">Apple Watch Series 9</h3>
+                    <p class="text-sm text-gray-600">Midnight, 45mm</p>
+                    <div class="cart-item-price">$399.99</div>
+                  </div>
+                  <div class="quantity-selector">
+                    <button class="quantity-btn">-</button>
+                    <input type="number" value="1" class="quantity-input" />
+                    <button class="quantity-btn">+</button>
+                  </div>
+                  <div class="text-right ml-4">
+                    <div class="font-weight-600">$399.99</div>
+                    <button class="text-error text-sm">Remove</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shipping Information -->
+            <div class="card mb-8">
+              <div class="card-header">
+                <h2 class="text-xl font-weight-600 mb-0">
+                  Shipping Information
+                </h2>
+              </div>
+              <div class="card-body">
+                <div class="grid grid-cols-2">
+                  <div class="form-group">
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-input" placeholder="John" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-input" placeholder="Doe" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-input"
+                    placeholder="john.doe@example.com"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Phone Number</label>
+                  <input
+                    type="tel"
+                    class="form-input"
+                    placeholder="+1 (555) 123-4567"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Address</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="123 Main Street"
+                  />
+                </div>
+
+                <div class="grid grid-cols-3">
+                  <div class="form-group">
+                    <label class="form-label">City</label>
+                    <input
+                      type="text"
+                      class="form-input"
+                      placeholder="New York"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">State</label>
+                    <select class="form-select">
+                      <option>Select State</option>
+                      <option>New York</option>
+                      <option>California</option>
+                      <option>Texas</option>
+                      <option>Florida</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">ZIP Code</label>
+                    <input type="text" class="form-input" placeholder="10001" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Payment Information -->
+            <div class="card mb-8">
+              <div class="card-header">
+                <h2 class="text-xl font-weight-600 mb-0">
+                  Payment Information
+                </h2>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label class="form-label">Payment Method</label>
+                  <div class="grid grid-cols-3">
+                    <label
+                      class="flex items-center p-4 border rounded-lg cursor-pointer"
+                    >
+                      <input
+                        type="radio"
+                        name="payment"
+                        value="card"
+                        class="mr-3"
+                        checked
+                      />
+                      <div class="text-center">
+                        <div class="text-2xl mb-1">💳</div>
+                        <div class="text-sm font-weight-500">Credit Card</div>
+                      </div>
+                    </label>
+                    <label
+                      class="flex items-center p-4 border rounded-lg cursor-pointer"
+                    >
+                      <input
+                        type="radio"
+                        name="payment"
+                        value="paypal"
+                        class="mr-3"
+                      />
+                      <div class="text-center">
+                        <div class="text-2xl mb-1">🅿️</div>
+                        <div class="text-sm font-weight-500">PayPal</div>
+                      </div>
+                    </label>
+                    <label
+                      class="flex items-center p-4 border rounded-lg cursor-pointer"
+                    >
+                      <input
+                        type="radio"
+                        name="payment"
+                        value="apple"
+                        class="mr-3"
+                      />
+                      <div class="text-center">
+                        <div class="text-2xl mb-1">📱</div>
+                        <div class="text-sm font-weight-500">Apple Pay</div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Card Number</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="1234 5678 9012 3456"
+                  />
+                </div>
+
+                <div class="grid grid-cols-2">
+                  <div class="form-group">
+                    <label class="form-label">Expiry Date</label>
+                    <input type="text" class="form-input" placeholder="MM/YY" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">CVV</label>
+                    <input type="text" class="form-input" placeholder="123" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Cardholder Name</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="John Doe"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="flex items-center">
+                    <input type="checkbox" class="mr-3" />
+                    <span>Billing address same as shipping address</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Summary Sidebar -->
+          <div>
+            <div class="card" style="position: sticky; top: 2rem">
+              <div class="card-header">
+                <h2 class="text-xl font-weight-600 mb-0">Order Summary</h2>
+              </div>
+              <div class="card-body">
+                <div class="space-y-3">
+                  <div class="flex justify-between">
+                    <span>Subtotal</span>
+                    <span>$1,799.96</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Shipping</span>
+                    <span class="text-success">Free</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Tax</span>
+                    <span>$143.99</span>
+                  </div>
+                  <div class="border-t pt-3">
+                    <div class="flex justify-between font-weight-600 text-lg">
+                      <span>Total</span>
+                      <span>$1,943.95</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Promo Code -->
+                <div class="mt-6">
+                  <label class="form-label">Promo Code</label>
+                  <div class="flex">
+                    <input
+                      type="text"
+                      class="form-input"
+                      placeholder="Enter code"
+                      style="border-radius: 0.375rem 0 0 0.375rem"
+                    />
+                    <button
+                      class="btn btn-secondary"
+                      style="border-radius: 0 0.375rem 0.375rem 0"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Estimated Delivery -->
+                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                  <h3 class="font-weight-600 mb-2">Estimated Delivery</h3>
+                  <p class="text-sm text-gray-600">📦 Standard Shipping</p>
+                  <p class="text-sm font-weight-500">3-5 business days</p>
+                  <p class="text-sm text-success">Free on orders over $50</p>
+                </div>
+
+                <!-- Place Order Button -->
+                <button class="btn btn-primary btn-full btn-lg mt-6">
+                  Place Order - $1,943.95
+                </button>
+
+                <!-- Security Notice -->
+                <div class="mt-4 text-center">
+                  <p class="text-xs text-gray-500">
+                    🔒 Your payment information is secure and encrypted
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Customer Support -->
+            <div class="card mt-6">
+              <div class="card-body text-center">
+                <h3 class="font-weight-600 mb-3">Need Help?</h3>
+                <p class="text-sm text-gray-600 mb-4">
+                  Our customer support team is here to assist you
+                </p>
+                <div class="space-y-2">
+                  <a href="#" class="btn btn-secondary btn-sm btn-full"
+                    >💬 Live Chat</a
+                  >
+                  <a href="#" class="btn btn-secondary btn-sm btn-full"
+                    >📞 Call Support</a
+                  >
+                  <a href="#" class="btn btn-secondary btn-sm btn-full"
+                    >❓ FAQ</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Signals -->
+    <section class="bg-gray-50 py-8">
+      <div class="container">
+        <div class="grid grid-cols-4 text-center">
+          <div>
+            <span class="text-3xl mb-2 block">🔒</span>
+            <h4 class="font-weight-600 mb-1">Secure Checkout</h4>
+            <p class="text-sm text-gray-600">SSL encrypted payments</p>
+          </div>
+          <div>
+            <span class="text-3xl mb-2 block">🚚</span>
+            <h4 class="font-weight-600 mb-1">Free Shipping</h4>
+            <p class="text-sm text-gray-600">On orders over $50</p>
+          </div>
+          <div>
+            <span class="text-3xl mb-2 block">🔄</span>
+            <h4 class="font-weight-600 mb-1">Easy Returns</h4>
+            <p class="text-sm text-gray-600">30-day return policy</p>
+          </div>
+          <div>
+            <span class="text-3xl mb-2 block">📞</span>
+            <h4 class="font-weight-600 mb-1">24/7 Support</h4>
+            <p class="text-sm text-gray-600">Always here to help</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="grid grid-cols-4">
+          <div>
+            <h3>ShopHub</h3>
+            <p class="text-gray-300 mb-4">
+              Your trusted online shopping destination for quality products at
+              great prices.
+            </p>
+            <div class="flex">
+              <a href="#" class="btn btn-secondary btn-sm">Facebook</a>
+              <a href="#" class="btn btn-secondary btn-sm">Twitter</a>
+              <a href="#" class="btn btn-secondary btn-sm">Instagram</a>
+            </div>
+          </div>
+
+          <div>
+            <h3>Quick Links</h3>
+            <ul style="list-style: none">
+              <li class="mb-2"><a href="index.html">Home</a></li>
+              <li class="mb-2"><a href="products.html">Products</a></li>
+              <li class="mb-2">
+                <a href="index.html#categories">Categories</a>
+              </li>
+              <li class="mb-2"><a href="index.html#about">About Us</a></li>
+              <li class="mb-2"><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Customer Service</h3>
+            <ul style="list-style: none">
+              <li class="mb-2"><a href="#">Help Center</a></li>
+              <li class="mb-2"><a href="#">Shipping Info</a></li>
+              <li class="mb-2"><a href="#">Returns</a></li>
+              <li class="mb-2"><a href="#">Size Guide</a></li>
+              <li class="mb-2"><a href="#">Track Order</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Contact Info</h3>
+            <ul style="list-style: none">
+              <li class="mb-2">📞 1-800-SHOPHUB</li>
+              <li class="mb-2">✉️ support@shophub.com</li>
+              <li class="mb-2">
+                📍 123 Commerce St<br />Shopping City, SC 12345
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 ShopHub. All rights reserved. | Privacy Policy | Terms
+            of Service
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopHub - Modern E-commerce Store</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="flex items-center justify-between">
+          <a href="index.html" class="navbar-brand">ShopHub</a>
+
+          <ul class="navbar-nav hidden-mobile">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+
+          <div class="flex items-center">
+            <a href="#search" class="btn btn-secondary btn-sm">Search</a>
+            <a href="checkout.html" class="btn btn-primary btn-sm">Cart (3)</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Discover Amazing Products</h1>
+        <p>Shop from thousands of high-quality products at unbeatable prices</p>
+        <div class="flex justify-center">
+          <a href="products.html" class="btn btn-accent btn-lg">Shop Now</a>
+          <a href="#featured" class="btn btn-secondary btn-lg"
+            >Browse Categories</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="section" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Shop by Category</h2>
+          <p class="section-subtitle">
+            Explore our wide range of product categories
+          </p>
+        </div>
+
+        <div class="grid grid-cols-4">
+          <div class="card">
+            <div class="card-body text-center">
+              <div
+                class="product-image bg-gray-100 mb-4 flex items-center justify-center"
+              >
+                <span class="text-4xl">📱</span>
+              </div>
+              <h3 class="product-title">Electronics</h3>
+              <p class="text-secondary">Latest gadgets and tech</p>
+              <a href="products.html" class="btn btn-primary btn-sm mt-4"
+                >Browse</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body text-center">
+              <div
+                class="product-image bg-gray-100 mb-4 flex items-center justify-center"
+              >
+                <span class="text-4xl">👕</span>
+              </div>
+              <h3 class="product-title">Fashion</h3>
+              <p class="text-secondary">Trendy clothing & accessories</p>
+              <a href="products.html" class="btn btn-primary btn-sm mt-4"
+                >Browse</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body text-center">
+              <div
+                class="product-image bg-gray-100 mb-4 flex items-center justify-center"
+              >
+                <span class="text-4xl">🏠</span>
+              </div>
+              <h3 class="product-title">Home & Garden</h3>
+              <p class="text-secondary">Beautiful home essentials</p>
+              <a href="products.html" class="btn btn-primary btn-sm mt-4"
+                >Browse</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body text-center">
+              <div
+                class="product-image bg-gray-100 mb-4 flex items-center justify-center"
+              >
+                <span class="text-4xl">⚽</span>
+              </div>
+              <h3 class="product-title">Sports</h3>
+              <p class="text-secondary">Gear for active lifestyle</p>
+              <a href="products.html" class="btn btn-primary btn-sm mt-4"
+                >Browse</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section bg-gray-50" id="featured">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Products</h2>
+          <p class="section-subtitle">Hand-picked products just for you</p>
+        </div>
+
+        <div class="grid grid-cols-4">
+          <div class="product-card">
+            <div
+              class="product-image bg-gray-100 flex items-center justify-center"
+            >
+              <span class="text-6xl">📱</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Latest Smartphone</h3>
+              <div class="product-price">
+                $699.99
+                <span class="product-price-original">$799.99</span>
+              </div>
+              <div class="flex items-center mb-3">
+                <span class="badge badge-success">Sale</span>
+                <span class="badge badge-secondary">Free Shipping</span>
+              </div>
+              <a href="products.html" class="btn btn-primary btn-full"
+                >Add to Cart</a
+              >
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div
+              class="product-image bg-gray-100 flex items-center justify-center"
+            >
+              <span class="text-6xl">💻</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Gaming Laptop</h3>
+              <div class="product-price">$1,299.99</div>
+              <div class="flex items-center mb-3">
+                <span class="badge badge-primary">New</span>
+              </div>
+              <a href="products.html" class="btn btn-primary btn-full"
+                >Add to Cart</a
+              >
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div
+              class="product-image bg-gray-100 flex items-center justify-center"
+            >
+              <span class="text-6xl">🎧</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Wireless Headphones</h3>
+              <div class="product-price">
+                $199.99
+                <span class="product-price-original">$249.99</span>
+              </div>
+              <div class="flex items-center mb-3">
+                <span class="badge badge-warning">Limited</span>
+              </div>
+              <a href="products.html" class="btn btn-primary btn-full"
+                >Add to Cart</a
+              >
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div
+              class="product-image bg-gray-100 flex items-center justify-center"
+            >
+              <span class="text-6xl">⌚</span>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Smart Watch</h3>
+              <div class="product-price">$399.99</div>
+              <div class="flex items-center mb-3">
+                <span class="badge badge-success">Best Seller</span>
+              </div>
+              <a href="products.html" class="btn btn-primary btn-full"
+                >Add to Cart</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="products.html" class="btn btn-secondary btn-lg"
+            >View All Products</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Why Choose ShopHub?</h2>
+          <p class="section-subtitle">
+            We're committed to providing the best shopping experience
+          </p>
+        </div>
+
+        <div class="grid grid-cols-3">
+          <div class="text-center">
+            <div class="mb-4">
+              <span class="text-6xl">🚚</span>
+            </div>
+            <h3 class="mb-3">Free Shipping</h3>
+            <p class="text-secondary">
+              Free shipping on orders over $50. Fast and reliable delivery
+              worldwide.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="mb-4">
+              <span class="text-6xl">🔒</span>
+            </div>
+            <h3 class="mb-3">Secure Payments</h3>
+            <p class="text-secondary">
+              Your payment information is encrypted and secure with
+              industry-standard protection.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="mb-4">
+              <span class="text-6xl">🔄</span>
+            </div>
+            <h3 class="mb-3">Easy Returns</h3>
+            <p class="text-secondary">
+              30-day return policy. No questions asked if you're not completely
+              satisfied.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section bg-primary">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title" style="color: white; margin-bottom: 1rem">
+            Stay Updated
+          </h2>
+          <p
+            class="section-subtitle"
+            style="color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem"
+          >
+            Subscribe to our newsletter for exclusive deals and new product
+            announcements
+          </p>
+
+          <div class="flex justify-center">
+            <div class="form-group" style="max-width: 400px; width: 100%">
+              <div class="flex">
+                <input
+                  type="email"
+                  class="form-input"
+                  placeholder="Enter your email"
+                  style="border-radius: 0.375rem 0 0 0.375rem"
+                />
+                <button
+                  class="btn btn-accent"
+                  style="border-radius: 0 0.375rem 0.375rem 0"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="grid grid-cols-4">
+          <div>
+            <h3>ShopHub</h3>
+            <p class="text-gray-300 mb-4">
+              Your trusted online shopping destination for quality products at
+              great prices.
+            </p>
+            <div class="flex">
+              <a href="#" class="btn btn-secondary btn-sm">Facebook</a>
+              <a href="#" class="btn btn-secondary btn-sm">Twitter</a>
+              <a href="#" class="btn btn-secondary btn-sm">Instagram</a>
+            </div>
+          </div>
+
+          <div>
+            <h3>Quick Links</h3>
+            <ul style="list-style: none">
+              <li class="mb-2"><a href="index.html">Home</a></li>
+              <li class="mb-2"><a href="products.html">Products</a></li>
+              <li class="mb-2"><a href="#categories">Categories</a></li>
+              <li class="mb-2"><a href="#about">About Us</a></li>
+              <li class="mb-2"><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Customer Service</h3>
+            <ul style="list-style: none">
+              <li class="mb-2"><a href="#">Help Center</a></li>
+              <li class="mb-2"><a href="#">Shipping Info</a></li>
+              <li class="mb-2"><a href="#">Returns</a></li>
+              <li class="mb-2"><a href="#">Size Guide</a></li>
+              <li class="mb-2"><a href="#">Track Order</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Contact Info</h3>
+            <ul style="list-style: none">
+              <li class="mb-2">📞 1-800-SHOPHUB</li>
+              <li class="mb-2">✉️ support@shophub.com</li>
+              <li class="mb-2">
+                📍 123 Commerce St<br />Shopping City, SC 12345
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 ShopHub. All rights reserved. | Privacy Policy | Terms
+            of Service
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

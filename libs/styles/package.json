@@ -1,0 +1,24 @@
+{
+  "name": "ecommerce-styles",
+  "version": "1.0.0",
+  "description": "Modern CSS theme and static files for e-commerce demo applications",
+  "main": "theme.css",
+  "scripts": {
+    "serve": "http-server . -p 3999 -o",
+    "start": "npm run serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "css",
+    "theme",
+    "ecommerce",
+    "frontend",
+    "static",
+    "demo"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

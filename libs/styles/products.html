@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products - ShopHub</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="flex items-center justify-between">
+          <a href="index.html" class="navbar-brand">ShopHub</a>
+
+          <ul class="navbar-nav hidden-mobile">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html" class="active">Products</a></li>
+            <li><a href="index.html#categories">Categories</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+
+          <div class="flex items-center">
+            <a href="#search" class="btn btn-secondary btn-sm">Search</a>
+            <a href="checkout.html" class="btn btn-primary btn-sm">Cart (3)</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="section bg-gray-50">
+      <div class="container">
+        <div class="section-header">
+          <h1 class="section-title">All Products</h1>
+          <p class="section-subtitle">
+            Discover our complete collection of quality products
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters and Products -->
+    <section class="section">
+      <div class="container">
+        <div class="grid" style="grid-template-columns: 250px 1fr; gap: 2rem">
+          <!-- Sidebar Filters -->
+          <div
+            class="bg-white border rounded-lg p-6"
+            style="height: fit-content"
+          >
+            <h3 class="mb-4">Filters</h3>
+
+            <!-- Category Filter -->
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select class="form-select">
+                <option>All Categories</option>
+                <option>Electronics</option>
+                <option>Fashion</option>
+                <option>Home & Garden</option>
+                <option>Sports</option>
+                <option>Books</option>
+                <option>Toys</option>
+              </select>
+            </div>
+
+            <!-- Price Range -->
+            <div class="form-group">
+              <label class="form-label">Price Range</label>
+              <div class="flex items-center">
+                <input
+                  type="number"
+                  class="form-input"
+                  placeholder="Min"
+                  style="width: 80px"
+                />
+                <span class="mx-2">-</span>
+                <input
+                  type="number"
+                  class="form-input"
+                  placeholder="Max"
+                  style="width: 80px"
+                />
+              </div>
+            </div>
+
+            <!-- Brand Filter -->
+            <div class="form-group">
+              <label class="form-label">Brand</label>
+              <div class="space-y-2">
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" /> Apple
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" /> Samsung
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" /> Sony
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" /> Nike
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" /> Adidas
+                </label>
+              </div>
+            </div>
+
+            <!-- Rating Filter -->
+            <div class="form-group">
+              <label class="form-label">Customer Rating</label>
+              <div class="space-y-2">
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" /> ⭐⭐⭐⭐⭐ 5 Stars
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" /> ⭐⭐⭐⭐ 4+ Stars
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" /> ⭐⭐⭐ 3+ Stars
+                </label>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-full mt-4">Apply Filters</button>
+            <button class="btn btn-secondary btn-full mt-2">Clear All</button>
+          </div>
+
+          <!-- Products Grid -->
+          <div>
+            <!-- Sort and View Options -->
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center">
+                <span class="text-gray-600 mr-4"
+                  >Showing 1-24 of 156 results</span
+                >
+              </div>
+
+              <div class="flex items-center">
+                <label class="form-label mr-2 mb-0">Sort by:</label>
+                <select class="form-select" style="width: auto">
+                  <option>Featured</option>
+                  <option>Price: Low to High</option>
+                  <option>Price: High to Low</option>
+                  <option>Customer Rating</option>
+                  <option>Newest</option>
+                  <option>Best Selling</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-3" style="gap: 1.5rem">
+              <!-- Product 1 -->
+              <div class="product-card">
+                <div
+                  class="product-image bg-gray-100 flex items-center justify-center"
+                >
+                  <span class="text-6xl">📱</span>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">iPhone 15 Pro</h3>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Latest smartphone with advanced features
+                  </p>
+                  <div class="product-price">
+                    $999.99
+                    <span class="product-price-original">$1099.99</span>
+                  </div>
+                  <div class="flex items-center mb-3">
+                    <span class="text-sm mr-2">⭐⭐⭐⭐⭐</span>
+                    <span class="text-sm text-gray-500">(245 reviews)</span>
+                  </div>
+                  <div class="flex items-center mb-3">
+                    <span class="badge badge-success">Sale</span>
+                    <span class="badge badge-secondary">Free Shipping</span>
+                  </div>
+                  <a href="checkout.html" class="btn btn-primary btn-full"
+                    >Add to Cart</a
+                  >
+                </div>
+              </div>
+
+              <!-- Product 2 -->
+              <div class="product-card">
+                <div
+                  class="product-image bg-gray-100 flex items-center justify-center"
+                >
+                  <span class="text-6xl">💻</span>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">MacBook Pro 16"</h3>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Professional laptop for creators
+                  </p>
+                  <div class="product-price">$2,399.99</div>
+                  <div class="flex items-center mb-3">
+                    <span class="text-sm mr-2">⭐⭐⭐⭐⭐</span>
+                    <span class="text-sm text-gray-500">(189 reviews)</span>
+                  </div>
+                  <div class="flex items-center mb-3">
+                    <span class="badge badge-primary">New</span>
+                  </div>
+                  <a href="checkout.html" class="btn btn-primary btn-full"
+                    >Add to Cart</a
+                  >
+                </div>
+              </div>
+
+              <!-- Product 3 -->
+              <div class="product-card">
+                <div
+                  class="product-image bg-gray-100 flex items-center justify-center"
+                >
+                  <span class="text-6xl">🎧</span>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">AirPods Pro</h3>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Premium wireless earbuds
+                  </p>
+                  <div class="product-price">
+                    $199.99
+                    <span class="product-price-original">$249.99</span>
+                  </div>
+                  <div class="flex items-center mb-3">
+                    <span class="text-sm mr-2">⭐⭐⭐⭐</span>
+                    <span class="text-sm text-gray-500">(512 reviews)</span>
+                  </div>
+                  <div class="flex items-center mb-3">
+                    <span class="badge badge-warning">Limited</span>
+                  </div>
+                  <a href="checkout.html" class="btn btn-primary btn-full"
+                    >Add to Cart</a
+                  >
+                </div>
+              </div>
+
+              <!-- Product 4 -->
+              <div class="product-card">
+                <div
+                  class="product-image bg-gray-100 flex items-center justify-center"
+                >
+                  <span class="text-6xl">⌚</span>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">Apple Watch Series 9</h3>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Advanced fitness and health tracking
+                  </p>
+                  <div class="product-price">$399.99</div>
+                  <div class="flex items-center mb-3">
+                    <span class="text-sm mr-2">⭐⭐⭐⭐⭐</span>
+                    <span class="text-sm text-gray-500">(332 reviews)</span>
+                  </div>
+                  <div class="flex items-center mb-3">
+                    <span class="badge badge-success">Best Seller</span>
+                  </div>
+                  <a href="checkout.html" class="btn btn-primary btn-full"
+                    >Add to Cart</a
+                  >
+                </div>
+              </div>
+
+              <!-- Product 5 -->
+              <div class="product-card">
+                <div
+                  class="product-image bg-gray-100 flex items-center justify-center"
+                >
+                  <span class="text-6xl">🖥️</span>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">4K Monitor 27"</h3>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Ultra HD display for professionals
+                  </p>
+                  <div class="product-price">$599.99</div>
+                  <div class="flex items-center mb-3">
+                    <span class="text-sm mr-2">⭐⭐⭐⭐</span>
+                    <span class="text-sm text-gray-500">(156 reviews)</span>
+                  </div>
+                  <a href="checkout.html" class="btn btn-primary btn-full"
+                    >Add to Cart</a
+                  >
+                </div>
+              </div>
+
+              <!-- Product 6 -->
+              <div class="product-card">
+                <div
+                  class="product-image bg-gray-100 flex items-center justify-center"
+                >
+                  <span class="text-6xl">⌨️</span>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">Mechanical Keyboard</h3>
+                  <p class="text-sm text-gray-600 mb-2">
+                    RGB backlit gaming keyboard
+                  </p>
+                  <div class="product-price">
+                    $149.99
+                    <span class="product-price-original">$179.99</span>
+                  </div>
+                  <div class="flex items-center mb-3">
+                    <span class="text-sm mr-2">⭐⭐⭐⭐</span>
+                    <span class="text-sm text-gray-500">(203 reviews)</span>
+                  </div>
+                  <div class="flex items-center mb-3">
+                    <span class="badge badge-success">Sale</span>
+                  </div>
+                  <a href="checkout.html" class="btn btn-primary btn-full"
+                    >Add to Cart</a
+                  >
+                </div>
+              </div>
+
+              <!-- Product 7 -->
+              <div class="product-card">
+                <div
+                  class="product-image bg-gray-100 flex items-center justify-center"
+                >
+                  <span class="text-6xl">🖱️</span>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">Wireless Gaming Mouse</h3>
+                  <p class="text-sm text-gray-600 mb-2">
+                    High-precision gaming mouse
+                  </p>
+                  <div class="product-price">$79.99</div>
+                  <div class="flex items-center mb-3">
+                    <span class="text-sm mr-2">⭐⭐⭐⭐⭐</span>
+                    <span class="text-sm text-gray-500">(89 reviews)</span>
+                  </div>
+                  <a href="checkout.html" class="btn btn-primary btn-full"
+                    >Add to Cart</a
+                  >
+                </div>
+              </div>
+
+              <!-- Product 8 -->
+              <div class="product-card">
+                <div
+                  class="product-image bg-gray-100 flex items-center justify-center"
+                >
+                  <span class="text-6xl">📷</span>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">Digital Camera</h3>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Professional DSLR camera
+                  </p>
+                  <div class="product-price">$899.99</div>
+                  <div class="flex items-center mb-3">
+                    <span class="text-sm mr-2">⭐⭐⭐⭐</span>
+                    <span class="text-sm text-gray-500">(124 reviews)</span>
+                  </div>
+                  <div class="flex items-center mb-3">
+                    <span class="badge badge-primary">New</span>
+                  </div>
+                  <a href="checkout.html" class="btn btn-primary btn-full"
+                    >Add to Cart</a
+                  >
+                </div>
+              </div>
+
+              <!-- Product 9 -->
+              <div class="product-card">
+                <div
+                  class="product-image bg-gray-100 flex items-center justify-center"
+                >
+                  <span class="text-6xl">🔊</span>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">Bluetooth Speaker</h3>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Portable wireless speaker
+                  </p>
+                  <div class="product-price">
+                    $49.99
+                    <span class="product-price-original">$69.99</span>
+                  </div>
+                  <div class="flex items-center mb-3">
+                    <span class="text-sm mr-2">⭐⭐⭐⭐</span>
+                    <span class="text-sm text-gray-500">(267 reviews)</span>
+                  </div>
+                  <div class="flex items-center mb-3">
+                    <span class="badge badge-success">Sale</span>
+                  </div>
+                  <a href="checkout.html" class="btn btn-primary btn-full"
+                    >Add to Cart</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center items-center mt-12">
+              <nav class="flex items-center">
+                <button class="btn btn-secondary btn-sm">Previous</button>
+                <div class="flex items-center mx-4">
+                  <button class="btn btn-primary btn-sm">1</button>
+                  <button class="btn btn-secondary btn-sm">2</button>
+                  <button class="btn btn-secondary btn-sm">3</button>
+                  <span class="mx-2">...</span>
+                  <button class="btn btn-secondary btn-sm">7</button>
+                </div>
+                <button class="btn btn-secondary btn-sm">Next</button>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="grid grid-cols-4">
+          <div>
+            <h3>ShopHub</h3>
+            <p class="text-gray-300 mb-4">
+              Your trusted online shopping destination for quality products at
+              great prices.
+            </p>
+            <div class="flex">
+              <a href="#" class="btn btn-secondary btn-sm">Facebook</a>
+              <a href="#" class="btn btn-secondary btn-sm">Twitter</a>
+              <a href="#" class="btn btn-secondary btn-sm">Instagram</a>
+            </div>
+          </div>
+
+          <div>
+            <h3>Quick Links</h3>
+            <ul style="list-style: none">
+              <li class="mb-2"><a href="index.html">Home</a></li>
+              <li class="mb-2"><a href="products.html">Products</a></li>
+              <li class="mb-2">
+                <a href="index.html#categories">Categories</a>
+              </li>
+              <li class="mb-2"><a href="index.html#about">About Us</a></li>
+              <li class="mb-2"><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Customer Service</h3>
+            <ul style="list-style: none">
+              <li class="mb-2"><a href="#">Help Center</a></li>
+              <li class="mb-2"><a href="#">Shipping Info</a></li>
+              <li class="mb-2"><a href="#">Returns</a></li>
+              <li class="mb-2"><a href="#">Size Guide</a></li>
+              <li class="mb-2"><a href="#">Track Order</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Contact Info</h3>
+            <ul style="list-style: none">
+              <li class="mb-2">📞 1-800-SHOPHUB</li>
+              <li class="mb-2">✉️ support@shophub.com</li>
+              <li class="mb-2">
+                📍 123 Commerce St<br />Shopping City, SC 12345
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 ShopHub. All rights reserved. | Privacy Policy | Terms
+            of Service
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
