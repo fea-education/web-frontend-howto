@@ -7,6 +7,6 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  base: process.env.NODE_ENV === "production" ? "/mdxpress/" : "/",
+  base: process.env.NODE_ENV === "production" ? "/web-frontend-howto/" : "/",
   integrations: [mdx(), react()],
 });
