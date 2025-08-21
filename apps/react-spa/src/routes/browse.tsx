@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import ProductGrid from "@/components/ProductGrid";
-import ProductFilters from "@/components/ProductFilters";
+import ProductGrid from "@/components/catalog/ProductGrid";
+import ProductFilters from "@/components/catalog/ProductFilters";
 
 export const Route = createFileRoute("/browse")({
   component: Browse,

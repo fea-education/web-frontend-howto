@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Hero from "@/components/Hero";
-import CategoryGrid from "@/components/CategoryGrid";
-import FeaturedProducts from "@/components/FeaturedProducts";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import Newsletter from "@/components/Newsletter";
+import Hero from "@/components/common/Hero";
+import CategoryGrid from "@/components/catalog/CategoryGrid";
+import FeaturedProducts from "@/components/catalog/FeaturedProducts";
+import WhyChooseUs from "@/components/common/WhyChooseUs";
+import Newsletter from "@/components/common/Newsletter";
 
 export const Route = createFileRoute("/")({
   component: Index,

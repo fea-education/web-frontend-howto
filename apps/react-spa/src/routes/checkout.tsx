@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import CheckoutProgress from "@/components/CheckoutProgress";
-import CartItems from "@/components/CartItems";
-import ShippingForm from "@/components/ShippingForm";
-import PaymentForm from "@/components/PaymentForm";
-import OrderSummary from "@/components/OrderSummary";
+import CheckoutProgress from "@/components/checkout/CheckoutProgress";
+import CartItems from "@/components/cart/CartItems";
+import ShippingForm from "@/components/checkout/ShippingForm";
+import PaymentForm from "@/components/checkout/PaymentForm";
+import OrderSummary from "@/components/checkout/OrderSummary";
 
 export const Route = createFileRoute("/checkout")({
   component: Checkout,
