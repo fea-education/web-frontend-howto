@@ -26,6 +26,7 @@ export interface PaymentInfo {
 }
 
 export interface Checkout {
+  id: string;
   cartId: string;
   shipping: ShippingInfo;
   payment: PaymentInfo;
