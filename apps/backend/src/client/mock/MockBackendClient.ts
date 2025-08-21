@@ -20,7 +20,7 @@ import type {
   CheckoutClient,
   PricingClient,
   BackendClient,
-} from "./types";
+} from "../types";
 
 export interface MockBackendState {
   products: Product[];
