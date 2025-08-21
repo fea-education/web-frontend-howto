@@ -1,5 +1,8 @@
 import { describe, it, expect, beforeEach, Mock } from "vitest";
-import { MockBackendClient, MockBackendState } from "./MockBackendClient";
+import {
+  MockBackendClient,
+  MockBackendState,
+} from "../src/client/mock/MockBackendClient";
 import type { ShippingInfo, PaymentInfo } from "@domain/checkout";
 
 const initialState = {
@@ -113,7 +116,7 @@ describe("MockBackendClient", () => {
   });
 
   describe("checkout", () => {
-    it("can start checkout, set shipping/payment, place order, get summary", async () => {
+    it("enforces in-progress and final checkout distinction", async () => {
       await client.cart.addItem("cart1", {
         productId: "p1",
         quantity: 1,
@@ -124,7 +127,13 @@ describe("MockBackendClient", () => {
       const cart = await client.cart.getCart("cart1");
       const checkout = await client.checkout.startCheckout(cart);
       expect(checkout.cartId).toBe("cart1");
+      expect(checkout.shipping).toBeUndefined();
+      expect(checkout.payment).toBeUndefined();
 
+      // Should not be able to place order yet
+      await expect(client.checkout.placeOrder(checkout.id)).rejects.toThrow();
+
+      // Set only shipping
       const shipping: ShippingInfo = {
         firstName: "John",
         lastName: "Doe",
@@ -136,11 +145,25 @@ describe("MockBackendClient", () => {
         zip: "",
         country: "",
       };
-      await client.checkout.setShippingInfo(checkout.id, shipping);
+      const withShipping = await client.checkout.setShippingInfo(
+        checkout.id,
+        shipping
+      );
+      expect(withShipping.shipping).toEqual(shipping);
+      expect(withShipping.payment).toBeUndefined();
+      await expect(client.checkout.placeOrder(checkout.id)).rejects.toThrow();
 
+      // Set only payment
       const payment: PaymentInfo = { method: "card" };
-      await client.checkout.setPaymentInfo(checkout.id, payment);
+      const withPayment = await client.checkout.setPaymentInfo(
+        checkout.id,
+        payment
+      );
+      expect(withPayment.payment).toEqual(payment);
+      // Now both shipping and payment are set
+      expect(withPayment.shipping).toEqual(shipping);
 
+      // Now placing order should succeed
       const order = await client.checkout.placeOrder(checkout.id);
       expect(order.shipping.firstName).toBe("John");
 

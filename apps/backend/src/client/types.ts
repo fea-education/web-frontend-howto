@@ -8,6 +8,7 @@ import type {
 import type { Cart, CartItem, CartSummary } from "@domain/cart";
 import type {
   Checkout,
+  CheckoutInProgress,
   ShippingInfo,
   PaymentInfo,
   Order,
@@ -34,9 +35,15 @@ export interface CartClient {
 
 // Checkout Context
 export interface CheckoutClient {
-  startCheckout(cart: Cart): Promise<Checkout>;
-  setShippingInfo(checkoutId: string, info: ShippingInfo): Promise<Checkout>;
-  setPaymentInfo(checkoutId: string, info: PaymentInfo): Promise<Checkout>;
+  startCheckout(cart: Cart): Promise<CheckoutInProgress>;
+  setShippingInfo(
+    checkoutId: string,
+    info: ShippingInfo
+  ): Promise<CheckoutInProgress>;
+  setPaymentInfo(
+    checkoutId: string,
+    info: PaymentInfo
+  ): Promise<CheckoutInProgress>;
   placeOrder(checkoutId: string): Promise<Order>;
   getOrderSummary(orderId: string): Promise<OrderSummary>;
 }

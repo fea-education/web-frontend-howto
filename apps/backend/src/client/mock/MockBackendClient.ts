@@ -1,19 +1,14 @@
-import type {
-  Product,
-  Category,
-  Brand,
-  Filter,
-  SortOption,
-} from "@domain/catalog";
-import type { Cart, CartItem, CartSummary } from "@domain/cart";
-import type {
+import { Product, Category, Brand, Filter, SortOption } from "@domain/catalog";
+import { Cart, CartItem, CartSummary } from "@domain/cart";
+import {
   Checkout,
+  CheckoutInProgress,
   ShippingInfo,
   PaymentInfo,
   Order,
   OrderSummary,
 } from "@domain/checkout";
-import type { Price, Campaign } from "@domain/pricing";
+import { Price, Campaign } from "@domain/pricing";
 import type {
   CatalogClient,
   CartClient,
@@ -27,7 +22,7 @@ export interface MockBackendState {
   categories: Category[];
   brands: Brand[];
   carts: Cart[];
-  checkouts: Checkout[];
+  checkouts: CheckoutInProgress[];
   orders: Order[];
   prices: Price[];
   campaigns: Campaign[];
@@ -43,6 +38,7 @@ export class MockBackendClient implements BackendClient {
 
   constructor(initialState: MockBackendState) {
     this.state = JSON.parse(JSON.stringify(initialState)); // Deep copy
+
     this.catalog = this.createCatalogClient();
     this.cart = this.createCartClient();
     this.checkout = this.createCheckoutClient();
@@ -65,11 +61,13 @@ export class MockBackendClient implements BackendClient {
                 filter.categoryIds!.includes(p.categoryId)
               );
             }
+
             if (filter.brandIds && filter.brandIds.length > 0) {
               products = products.filter((p) =>
                 filter.brandIds!.includes(p.brandId)
               );
             }
+
             if (filter.minPrice !== undefined) {
               products = products.filter((p) => {
                 // Find price for this product
@@ -79,6 +77,7 @@ export class MockBackendClient implements BackendClient {
                 return price ? price.amount >= filter.minPrice! : true;
               });
             }
+
             if (filter.maxPrice !== undefined) {
               products = products.filter((p) => {
                 const price = this.state.prices.find(
@@ -87,11 +86,13 @@ export class MockBackendClient implements BackendClient {
                 return price ? price.amount <= filter.maxPrice! : true;
               });
             }
+
             if (filter.minRating !== undefined) {
               products = products.filter(
                 (p) => (p.rating ?? 0) >= filter.minRating!
               );
             }
+
             if (filter.tags && filter.tags.length > 0) {
               products = products.filter(
                 (p) =>
@@ -139,12 +140,15 @@ export class MockBackendClient implements BackendClient {
 
         return products;
       },
+
       getProductById: async (id: string): Promise<Product | undefined> => {
         return this.state.products.find((p) => p.id === id);
       },
+
       listCategories: async (): Promise<Category[]> => {
         return this.state.categories;
       },
+
       listBrands: async (): Promise<Brand[]> => {
         return this.state.brands;
       },
@@ -204,42 +208,60 @@ export class MockBackendClient implements BackendClient {
 
   private createCheckoutClient(): CheckoutClient {
     return {
-      startCheckout: async (cart: Cart): Promise<Checkout> => {
-        const checkout: Checkout = {
+      // Start a new checkout in progress (shipping/payment optional)
+      startCheckout: async (cart: Cart): Promise<CheckoutInProgress> => {
+        const checkout: CheckoutInProgress = {
           id: `checkout_${Date.now()}`,
           cartId: cart.id,
-          shipping: {} as ShippingInfo,
-          payment: {} as PaymentInfo,
         };
         this.state.checkouts.push(checkout);
         return checkout;
       },
+
+      // Set shipping info on a checkout in progress
       setShippingInfo: async (
         checkoutId: string,
         info: ShippingInfo
-      ): Promise<Checkout> => {
+      ): Promise<CheckoutInProgress> => {
         const checkout = this.state.checkouts.find((c) => c.id === checkoutId);
         if (!checkout) throw new Error("Checkout not found");
         checkout.shipping = info;
         return checkout;
       },
+
+      // Set payment info on a checkout in progress
       setPaymentInfo: async (
         checkoutId: string,
         info: PaymentInfo
-      ): Promise<Checkout> => {
+      ): Promise<CheckoutInProgress> => {
         const checkout = this.state.checkouts.find((c) => c.id === checkoutId);
         if (!checkout) throw new Error("Checkout not found");
         checkout.payment = info;
         return checkout;
       },
+
+      // Place order: only allowed if both shipping and payment are set
       placeOrder: async (checkoutId: string): Promise<Order> => {
         const checkout = this.state.checkouts.find((c) => c.id === checkoutId);
         if (!checkout) throw new Error("Checkout not found");
+        if (!checkout.shipping || !checkout.payment) {
+          throw new Error(
+            "Cannot place order: shipping and payment info required"
+          );
+        }
+        // Convert to final Checkout type
+        const finalCheckout: Checkout = {
+          id: checkout.id,
+          cartId: checkout.cartId,
+          shipping: checkout.shipping,
+          payment: checkout.payment,
+          promoCode: checkout.promoCode,
+        };
         const order: Order = {
           id: `order_${Date.now()}`,
           items: [],
-          shipping: checkout.shipping,
-          payment: checkout.payment,
+          shipping: finalCheckout.shipping,
+          payment: finalCheckout.payment,
           summary: {} as OrderSummary,
           status: "pending",
           createdAt: new Date().toISOString(),
@@ -248,6 +270,7 @@ export class MockBackendClient implements BackendClient {
         this.state.orders.push(order);
         return order;
       },
+
       getOrderSummary: async (orderId: string): Promise<OrderSummary> => {
         const order = this.state.orders.find((o) => o.id === orderId);
         if (!order) throw new Error("Order not found");
