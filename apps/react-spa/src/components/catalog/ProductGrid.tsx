@@ -1,79 +1,58 @@
-import { Link } from '@tanstack/react-router'
+import { Link } from "@tanstack/react-router";
+import { useProductsWithPrices } from "../../hooks/useBackend";
 
 export default function ProductGrid() {
-  const products = [
-    {
-      emoji: '📱',
-      title: 'iPhone 15 Pro',
-      description: 'Latest smartphone with advanced features',
-      price: '$999.99',
-      originalPrice: '$1099.99',
-      rating: '⭐⭐⭐⭐⭐',
-      reviews: 245,
-      badges: [
-        { text: 'Sale', type: 'success' },
-        { text: 'Free Shipping', type: 'secondary' },
-      ],
-    },
-    {
-      emoji: '💻',
-      title: 'MacBook Pro 16"',
-      description: 'Professional laptop for creators',
-      price: '$2,399.99',
-      rating: '⭐⭐⭐⭐⭐',
-      reviews: 189,
-      badges: [{ text: 'New', type: 'primary' }],
-    },
-    {
-      emoji: '🎧',
-      title: 'AirPods Pro',
-      description: 'Premium wireless earbuds',
-      price: '$199.99',
-      originalPrice: '$249.99',
-      rating: '⭐⭐⭐⭐',
-      reviews: 512,
-      badges: [{ text: 'Limited', type: 'warning' }],
-    },
-    {
-      emoji: '⌚',
-      title: 'Apple Watch Series 9',
-      description: 'Advanced fitness and health tracking',
-      price: '$399.99',
-      rating: '⭐⭐⭐⭐⭐',
-      reviews: 332,
-      badges: [{ text: 'Best Seller', type: 'success' }],
-    },
-    {
-      emoji: '🖥️',
-      title: '4K Monitor 27"',
-      description: 'Ultra HD display for professionals',
-      price: '$599.99',
-      rating: '⭐⭐⭐⭐',
-      reviews: 156,
-      badges: [],
-    },
-    {
-      emoji: '📷',
-      title: 'Professional Camera',
-      description: 'High-quality DSLR camera',
-      price: '$1,299.99',
-      rating: '⭐⭐⭐⭐⭐',
-      reviews: 98,
-      badges: [{ text: 'Professional', type: 'primary' }],
-    },
-  ]
+  const { data: products, isLoading, error } = useProductsWithPrices();
+
+  if (isLoading) return <div>Loading products...</div>;
+  if (error) return <div>Error loading products</div>;
+
+  const formatPrice = (
+    amount: number,
+    isOnSale?: boolean,
+    saleAmount?: number
+  ) => {
+    const displayPrice = `$${amount.toFixed(2)}`;
+    const originalPrice =
+      isOnSale && saleAmount && saleAmount !== amount
+        ? `$${saleAmount.toFixed(2)}`
+        : undefined;
+    return { displayPrice, originalPrice };
+  };
+
+  const formatRating = (rating?: number) => {
+    if (!rating) return "⭐⭐⭐⭐⭐";
+    const stars = Math.round(rating);
+    return "⭐".repeat(stars) + "☆".repeat(5 - stars);
+  };
+
+  const getBadges = (product: any) => {
+    const badges = [];
+    if (product.price?.isOnSale) badges.push({ text: "Sale", type: "success" });
+    if (product.tags?.includes("new"))
+      badges.push({ text: "New", type: "primary" });
+    if (product.tags?.includes("limited"))
+      badges.push({ text: "Limited", type: "warning" });
+    if (product.tags?.includes("bestseller"))
+      badges.push({ text: "Best Seller", type: "success" });
+    if (product.tags?.includes("professional"))
+      badges.push({ text: "Professional", type: "primary" });
+    return badges;
+  };
 
   return (
     <div>
       {/* Sort and View Options */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center">
-          <span className="text-gray-600 mr-4">Showing 1-24 of 156 results</span>
+          <span className="text-gray-600 mr-4">
+            Showing 1-{products?.length || 0} of {products?.length || 0} results
+          </span>
         </div>
 
         <div className="flex items-center">
           <label className="form-label mr-2 mb-0">Sort by:</label>
-          <select className="form-select" style={{ width: 'auto' }}>
+          <select className="form-select" style={{ width: "auto" }}>
             <option>Featured</option>
             <option>Price: Low to High</option>
             <option>Price: High to Low</option>
@@ -85,45 +64,60 @@ export default function ProductGrid() {
       </div>
 
       {/* Products Grid */}
-      <div className="grid grid-cols-3" style={{ gap: '1.5rem' }}>
-        {products.map((product, index) => (
-          <div key={index} className="product-card">
-            <div className="product-image bg-gray-100 flex items-center justify-center">
-              <span className="text-6xl">{product.emoji}</span>
-            </div>
-            <div className="product-info">
-              <h3 className="product-title">{product.title}</h3>
-              <p className="text-sm text-gray-600 mb-2">{product.description}</p>
-              <div className="product-price">
-                {product.price}
-                {product.originalPrice && (
-                  <span className="product-price-original">
-                    {product.originalPrice}
-                  </span>
-                )}
+      <div className="grid grid-cols-3" style={{ gap: "1.5rem" }}>
+        {products?.map((product: any) => {
+          const { displayPrice, originalPrice } = formatPrice(
+            product.price?.amount || 0,
+            product.price?.isOnSale,
+            product.price?.saleAmount
+          );
+          const badges = getBadges(product);
+
+          return (
+            <div key={product.id} className="product-card">
+              <div className="product-image bg-gray-100 flex items-center justify-center">
+                <span className="text-6xl">📦</span>
               </div>
-              <div className="flex items-center mb-3">
-                <span className="text-sm mr-2">{product.rating}</span>
-                <span className="text-sm text-gray-500">({product.reviews} reviews)</span>
-              </div>
-              {product.badges.length > 0 && (
-                <div className="flex items-center mb-3">
-                  {product.badges.map((badge, badgeIndex) => (
-                    <span
-                      key={badgeIndex}
-                      className={`badge badge-${badge.type}`}
-                    >
-                      {badge.text}
+              <div className="product-info">
+                <h3 className="product-title">{product.name}</h3>
+                <p className="text-sm text-gray-600 mb-2">
+                  {product.description}
+                </p>
+                <div className="product-price">
+                  {displayPrice}
+                  {originalPrice && (
+                    <span className="product-price-original">
+                      {originalPrice}
                     </span>
-                  ))}
+                  )}
                 </div>
-              )}
-              <Link to="/checkout" className="btn btn-primary btn-full">
-                Add to Cart
-              </Link>
+                <div className="flex items-center mb-3">
+                  <span className="text-sm mr-2">
+                    {formatRating(product.rating)}
+                  </span>
+                  <span className="text-sm text-gray-500">
+                    ({product.reviewCount || 0} reviews)
+                  </span>
+                </div>
+                {badges.length > 0 && (
+                  <div className="flex items-center mb-3">
+                    {badges.map((badge, badgeIndex) => (
+                      <span
+                        key={badgeIndex}
+                        className={`badge badge-${badge.type}`}
+                      >
+                        {badge.text}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <Link to="/checkout" className="btn btn-primary btn-full">
+                  Add to Cart
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Pagination */}
@@ -141,5 +135,5 @@ export default function ProductGrid() {
         </div>
       </div>
     </div>
-  )
+  );
 }

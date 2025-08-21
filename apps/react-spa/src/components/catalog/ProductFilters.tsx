@@ -1,13 +1,20 @@
+import { useCategories, useBrands } from "../../hooks/useBackend";
+
 export default function ProductFilters() {
-  const brands = ['Apple', 'Samsung', 'Sony', 'Nike', 'Adidas']
+  const { data: categories } = useCategories();
+  const { data: brands } = useBrands();
+
   const ratings = [
-    { stars: '⭐⭐⭐⭐⭐', label: '5 Stars' },
-    { stars: '⭐⭐⭐⭐', label: '4+ Stars' },
-    { stars: '⭐⭐⭐', label: '3+ Stars' },
-  ]
+    { stars: "⭐⭐⭐⭐⭐", label: "5 Stars" },
+    { stars: "⭐⭐⭐⭐", label: "4+ Stars" },
+    { stars: "⭐⭐⭐", label: "3+ Stars" },
+  ];
 
   return (
-    <div className="bg-white border rounded-lg p-6" style={{ height: 'fit-content' }}>
+    <div
+      className="bg-white border rounded-lg p-6"
+      style={{ height: "fit-content" }}
+    >
       <h3 className="mb-4">Filters</h3>
 
       {/* Category Filter */}
@@ -15,12 +22,11 @@ export default function ProductFilters() {
         <label className="form-label">Category</label>
         <select className="form-select">
           <option>All Categories</option>
-          <option>Electronics</option>
-          <option>Fashion</option>
-          <option>Home & Garden</option>
-          <option>Sports</option>
-          <option>Books</option>
-          <option>Toys</option>
+          {categories?.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
         </select>
       </div>
 
@@ -32,14 +38,14 @@ export default function ProductFilters() {
             type="number"
             className="form-input"
             placeholder="Min"
-            style={{ width: '80px' }}
+            style={{ width: "80px" }}
           />
           <span className="mx-2">-</span>
           <input
             type="number"
             className="form-input"
             placeholder="Max"
-            style={{ width: '80px' }}
+            style={{ width: "80px" }}
           />
         </div>
       </div>
@@ -48,9 +54,9 @@ export default function ProductFilters() {
       <div className="form-group">
         <label className="form-label">Brand</label>
         <div className="space-y-2">
-          {brands.map((brand, index) => (
-            <label key={index} className="flex items-center">
-              <input type="checkbox" className="mr-2" /> {brand}
+          {brands?.map((brand) => (
+            <label key={brand.id} className="flex items-center">
+              <input type="checkbox" className="mr-2" /> {brand.name}
             </label>
           ))}
         </div>
@@ -62,7 +68,8 @@ export default function ProductFilters() {
         <div className="space-y-2">
           {ratings.map((rating, index) => (
             <label key={index} className="flex items-center">
-              <input type="checkbox" className="mr-2" /> {rating.stars} {rating.label}
+              <input type="checkbox" className="mr-2" /> {rating.stars}{" "}
+              {rating.label}
             </label>
           ))}
         </div>
@@ -71,5 +78,5 @@ export default function ProductFilters() {
       <button className="btn btn-primary btn-full mt-4">Apply Filters</button>
       <button className="btn btn-secondary btn-full mt-2">Clear All</button>
     </div>
-  )
+  );
 }

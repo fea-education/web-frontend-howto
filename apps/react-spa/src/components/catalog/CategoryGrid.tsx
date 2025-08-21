@@ -1,12 +1,11 @@
-import { Link } from '@tanstack/react-router'
+import { Link } from "@tanstack/react-router";
+import { useCategories } from "../../hooks/useBackend";
 
 export default function CategoryGrid() {
-  const categories = [
-    { emoji: '📱', title: 'Electronics', description: 'Latest gadgets and tech' },
-    { emoji: '👕', title: 'Fashion', description: 'Trendy clothing & accessories' },
-    { emoji: '🏠', title: 'Home & Garden', description: 'Beautiful home essentials' },
-    { emoji: '⚽', title: 'Sports', description: 'Gear for active lifestyle' },
-  ]
+  const { data: categories, isLoading, error } = useCategories();
+
+  if (isLoading) return <div>Loading categories...</div>;
+  if (error) return <div>Error loading categories</div>;
 
   return (
     <section className="section" id="categories">
@@ -19,13 +18,13 @@ export default function CategoryGrid() {
         </div>
 
         <div className="grid grid-cols-4">
-          {categories.map((category, index) => (
-            <div key={index} className="card">
+          {categories?.map((category) => (
+            <div key={category.id} className="card">
               <div className="card-body text-center">
                 <div className="product-image bg-gray-100 mb-4 flex items-center justify-center">
-                  <span className="text-4xl">{category.emoji}</span>
+                  <span className="text-4xl">📦</span>
                 </div>
-                <h3 className="product-title">{category.title}</h3>
+                <h3 className="product-title">{category.name}</h3>
                 <p className="text-secondary">{category.description}</p>
                 <Link to="/browse" className="btn btn-primary btn-sm mt-4">
                   Browse
@@ -36,5 +35,5 @@ export default function CategoryGrid() {
         </div>
       </div>
     </section>
-  )
+  );
 }

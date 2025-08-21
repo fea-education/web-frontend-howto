@@ -295,3 +295,7 @@ export class MockBackendClient implements BackendClient {
     };
   }
 }
+
+// Singleton instance initialized with mock state
+import { mockState } from "./state";
+export const mockBackendClient = new MockBackendClient(mockState);

@@ -1,37 +1,40 @@
-import { Link } from '@tanstack/react-router'
+import { Link } from "@tanstack/react-router";
+import { useProductsWithPrices } from "../../hooks/useBackend";
 
 export default function FeaturedProducts() {
-  const products = [
-    {
-      emoji: '📱',
-      title: 'Latest Smartphone',
-      price: '$699.99',
-      originalPrice: '$799.99',
-      badges: [
-        { text: 'Sale', type: 'success' },
-        { text: 'Free Shipping', type: 'secondary' },
-      ],
-    },
-    {
-      emoji: '💻',
-      title: 'Gaming Laptop',
-      price: '$1,299.99',
-      badges: [{ text: 'New', type: 'primary' }],
-    },
-    {
-      emoji: '🎧',
-      title: 'Wireless Headphones',
-      price: '$199.99',
-      originalPrice: '$249.99',
-      badges: [{ text: 'Limited', type: 'warning' }],
-    },
-    {
-      emoji: '⌚',
-      title: 'Smart Watch',
-      price: '$399.99',
-      badges: [{ text: 'Best Seller', type: 'success' }],
-    },
-  ]
+  const { data: allProducts, isLoading, error } = useProductsWithPrices();
+
+  if (isLoading) return <div>Loading featured products...</div>;
+  if (error) return <div>Error loading featured products</div>;
+
+  // Filter for featured products
+  const featuredProducts =
+    allProducts?.filter((product: any) => product.isFeatured) || [];
+
+  const formatPrice = (
+    amount: number,
+    isOnSale?: boolean,
+    saleAmount?: number
+  ) => {
+    const displayPrice = `$${amount.toFixed(2)}`;
+    const originalPrice =
+      isOnSale && saleAmount && saleAmount !== amount
+        ? `$${saleAmount.toFixed(2)}`
+        : undefined;
+    return { displayPrice, originalPrice };
+  };
+
+  const getBadges = (product: any) => {
+    const badges = [];
+    if (product.price?.isOnSale) badges.push({ text: "Sale", type: "success" });
+    if (product.tags?.includes("new"))
+      badges.push({ text: "New", type: "primary" });
+    if (product.tags?.includes("limited"))
+      badges.push({ text: "Limited", type: "warning" });
+    if (product.tags?.includes("bestseller"))
+      badges.push({ text: "Best Seller", type: "success" });
+    return badges;
+  };
 
   return (
     <section className="section bg-gray-50" id="featured">
@@ -42,37 +45,46 @@ export default function FeaturedProducts() {
         </div>
 
         <div className="grid grid-cols-4">
-          {products.map((product, index) => (
-            <div key={index} className="product-card">
-              <div className="product-image bg-gray-100 flex items-center justify-center">
-                <span className="text-6xl">{product.emoji}</span>
-              </div>
-              <div className="product-info">
-                <h3 className="product-title">{product.title}</h3>
-                <div className="product-price">
-                  {product.price}
-                  {product.originalPrice && (
-                    <span className="product-price-original">
-                      {product.originalPrice}
-                    </span>
-                  )}
+          {featuredProducts.map((product: any) => {
+            const { displayPrice, originalPrice } = formatPrice(
+              product.price?.amount || 0,
+              product.price?.isOnSale,
+              product.price?.saleAmount
+            );
+            const badges = getBadges(product);
+
+            return (
+              <div key={product.id} className="product-card">
+                <div className="product-image bg-gray-100 flex items-center justify-center">
+                  <span className="text-6xl">📦</span>
                 </div>
-                <div className="flex items-center mb-3">
-                  {product.badges.map((badge, badgeIndex) => (
-                    <span
-                      key={badgeIndex}
-                      className={`badge badge-${badge.type}`}
-                    >
-                      {badge.text}
-                    </span>
-                  ))}
+                <div className="product-info">
+                  <h3 className="product-title">{product.name}</h3>
+                  <div className="product-price">
+                    {displayPrice}
+                    {originalPrice && (
+                      <span className="product-price-original">
+                        {originalPrice}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center mb-3">
+                    {badges.map((badge, badgeIndex) => (
+                      <span
+                        key={badgeIndex}
+                        className={`badge badge-${badge.type}`}
+                      >
+                        {badge.text}
+                      </span>
+                    ))}
+                  </div>
+                  <Link to="/browse" className="btn btn-primary btn-full">
+                    Add to Cart
+                  </Link>
                 </div>
-                <Link to="/browse" className="btn btn-primary btn-full">
-                  Add to Cart
-                </Link>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="text-center mt-8">
@@ -82,5 +94,5 @@ export default function FeaturedProducts() {
         </div>
       </div>
     </section>
-  )
+  );
 }

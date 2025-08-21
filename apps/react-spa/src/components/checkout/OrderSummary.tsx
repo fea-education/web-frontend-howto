@@ -1,13 +1,22 @@
+import { useCartSummary } from "../../hooks/useBackend";
+
 export default function OrderSummary() {
-  const orderDetails = {
-    subtotal: '$1,799.96',
-    shipping: '$9.99',
-    tax: '$144.00',
-    total: '$1,953.95',
-  }
+  // Using the demo cart ID from our mock state
+  const { data: cartSummary, isLoading, error } = useCartSummary("demo-cart");
+
+  if (isLoading) return <div>Loading order summary...</div>;
+  if (error) return <div>Error loading order summary</div>;
+
+  const formatPrice = (amount: number) => `$${amount.toFixed(2)}`;
+
+  // Calculate additional fees
+  const subtotal = cartSummary?.subtotal || 0;
+  const shipping = 9.99;
+  const tax = subtotal * 0.08; // 8% tax
+  const total = subtotal + shipping + tax;
 
   return (
-    <div className="card" style={{ height: 'fit-content' }}>
+    <div className="card" style={{ height: "fit-content" }}>
       <div className="card-header">
         <h2 className="text-xl font-weight-600 mb-0">Order Summary</h2>
       </div>
@@ -15,20 +24,20 @@ export default function OrderSummary() {
         <div className="space-y-3">
           <div className="flex justify-between">
             <span>Subtotal</span>
-            <span>{orderDetails.subtotal}</span>
+            <span>{formatPrice(subtotal)}</span>
           </div>
           <div className="flex justify-between">
             <span>Shipping</span>
-            <span>{orderDetails.shipping}</span>
+            <span>{formatPrice(shipping)}</span>
           </div>
           <div className="flex justify-between">
             <span>Tax</span>
-            <span>{orderDetails.tax}</span>
+            <span>{formatPrice(tax)}</span>
           </div>
           <hr />
           <div className="flex justify-between font-weight-600 text-lg">
             <span>Total</span>
-            <span>{orderDetails.total}</span>
+            <span>{formatPrice(total)}</span>
           </div>
         </div>
 
@@ -38,11 +47,11 @@ export default function OrderSummary() {
 
         <div className="mt-4 text-center">
           <p className="text-sm text-gray-600">
-            By placing your order, you agree to our{' '}
+            By placing your order, you agree to our{" "}
             <a href="#" className="text-primary">
               Terms of Service
-            </a>{' '}
-            and{' '}
+            </a>{" "}
+            and{" "}
             <a href="#" className="text-primary">
               Privacy Policy
             </a>
@@ -60,5 +69,5 @@ export default function OrderSummary() {
         </div>
       </div>
     </div>
-  )
+  );
 }
