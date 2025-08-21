@@ -1,12 +1,12 @@
 import { Product, Category, Brand, Filter, SortOption } from "@domain/catalog";
 import { Cart, CartItem, CartSummary } from "@domain/cart";
 import {
-  Checkout,
   CheckoutInProgress,
   ShippingInfo,
   PaymentInfo,
   Order,
   OrderSummary,
+  isCheckoutFinalized,
 } from "@domain/checkout";
 import { Price, Campaign } from "@domain/pricing";
 import type {
@@ -160,17 +160,20 @@ export class MockBackendClient implements BackendClient {
       getCart: async (cartId: string): Promise<Cart> => {
         const cart = this.state.carts.find((c) => c.id === cartId);
         if (!cart) throw new Error("Cart not found");
+
         return cart;
       },
       addItem: async (cartId: string, item: CartItem): Promise<Cart> => {
         const cart = this.state.carts.find((c) => c.id === cartId);
         if (!cart) throw new Error("Cart not found");
+
         const existing = cart.items.find((i) => i.productId === item.productId);
         if (existing) {
           existing.quantity += item.quantity;
         } else {
           cart.items.push({ ...item });
         }
+
         return cart;
       },
       removeItem: async (cartId: string, itemId: string): Promise<Cart> => {
@@ -182,17 +185,20 @@ export class MockBackendClient implements BackendClient {
       updateItem: async (cartId: string, item: CartItem): Promise<Cart> => {
         const cart = this.state.carts.find((c) => c.id === cartId);
         if (!cart) throw new Error("Cart not found");
+
         const idx = cart.items.findIndex((i) => i.productId === item.productId);
         if (idx !== -1) {
           cart.items[idx] = { ...item };
         } else {
           cart.items.push({ ...item });
         }
+
         return cart;
       },
       getSummary: async (cartId: string): Promise<CartSummary> => {
         const cart = this.state.carts.find((c) => c.id === cartId);
         if (!cart) throw new Error("Cart not found");
+
         const subtotal = cart.items.reduce(
           (sum, i) => sum + i.price * i.quantity,
           0
@@ -225,6 +231,7 @@ export class MockBackendClient implements BackendClient {
       ): Promise<CheckoutInProgress> => {
         const checkout = this.state.checkouts.find((c) => c.id === checkoutId);
         if (!checkout) throw new Error("Checkout not found");
+
         checkout.shipping = info;
         return checkout;
       },
@@ -236,6 +243,7 @@ export class MockBackendClient implements BackendClient {
       ): Promise<CheckoutInProgress> => {
         const checkout = this.state.checkouts.find((c) => c.id === checkoutId);
         if (!checkout) throw new Error("Checkout not found");
+
         checkout.payment = info;
         return checkout;
       },
@@ -244,29 +252,22 @@ export class MockBackendClient implements BackendClient {
       placeOrder: async (checkoutId: string): Promise<Order> => {
         const checkout = this.state.checkouts.find((c) => c.id === checkoutId);
         if (!checkout) throw new Error("Checkout not found");
-        if (!checkout.shipping || !checkout.payment) {
-          throw new Error(
-            "Cannot place order: shipping and payment info required"
-          );
+
+        if (!isCheckoutFinalized(checkout)) {
+          throw new Error("Cannot place order: The Checkout isn't finalized");
         }
-        // Convert to final Checkout type
-        const finalCheckout: Checkout = {
-          id: checkout.id,
-          cartId: checkout.cartId,
-          shipping: checkout.shipping,
-          payment: checkout.payment,
-          promoCode: checkout.promoCode,
-        };
+
         const order: Order = {
           id: `order_${Date.now()}`,
           items: [],
-          shipping: finalCheckout.shipping,
-          payment: finalCheckout.payment,
+          shipping: checkout.shipping,
+          payment: checkout.payment,
           summary: {} as OrderSummary,
           status: "pending",
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
         };
+
         this.state.orders.push(order);
         return order;
       },
@@ -274,6 +275,7 @@ export class MockBackendClient implements BackendClient {
       getOrderSummary: async (orderId: string): Promise<OrderSummary> => {
         const order = this.state.orders.find((o) => o.id === orderId);
         if (!order) throw new Error("Order not found");
+
         return order.summary;
       },
     };
@@ -284,6 +286,7 @@ export class MockBackendClient implements BackendClient {
       calculatePrice: async (productId: string): Promise<Price> => {
         const price = this.state.prices.find((p) => p.productId === productId);
         if (!price) throw new Error("Price not found");
+
         return price;
       },
       listCampaigns: async (): Promise<Campaign[]> => {

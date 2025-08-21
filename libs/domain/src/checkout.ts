@@ -25,12 +25,28 @@ export interface PaymentInfo {
   billingSameAsShipping?: boolean;
 }
 
+// A checkout in progress may have incomplete info
+export interface CheckoutInProgress {
+  id: string;
+  cartId: string;
+  shipping?: ShippingInfo;
+  payment?: PaymentInfo;
+  promoCode?: string;
+}
+
+// A final checkout must have shipping and payment info
 export interface Checkout {
   id: string;
   cartId: string;
   shipping: ShippingInfo;
   payment: PaymentInfo;
   promoCode?: string;
+}
+
+export function isCheckoutFinalized(
+  checkout: CheckoutInProgress
+): checkout is Checkout {
+  return !!(checkout.shipping && checkout.payment);
 }
 
 export interface OrderSummary {
