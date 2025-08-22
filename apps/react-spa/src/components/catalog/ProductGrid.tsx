@@ -90,21 +90,6 @@ export default function ProductGrid() {
           />
         ))}
       </div>
-
-      {/* Pagination */}
-      <div className="flex justify-center mt-8">
-        <div className="flex items-center">
-          <button className="btn btn-secondary mr-2" disabled>
-            Previous
-          </button>
-          <button className="btn btn-primary mx-1">1</button>
-          <button className="btn btn-secondary mx-1">2</button>
-          <button className="btn btn-secondary mx-1">3</button>
-          <span className="mx-2">...</span>
-          <button className="btn btn-secondary mx-1">7</button>
-          <button className="btn btn-secondary ml-2">Next</button>
-        </div>
-      </div>
     </div>
   );
 }
