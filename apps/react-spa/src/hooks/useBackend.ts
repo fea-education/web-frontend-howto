@@ -18,6 +18,14 @@ export function useGetProductById(id: string) {
   });
 }
 
+export function useGetProductDetailById(id: string) {
+  return useQuery({
+    queryKey: ["productDetail", id],
+    queryFn: () => mockBackendClient.catalog.getProductDetailById(id),
+    enabled: !!id,
+  });
+}
+
 export function useListCategories() {
   return useQuery({
     queryKey: ["categories"],

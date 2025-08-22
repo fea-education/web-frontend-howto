@@ -13,6 +13,24 @@ export interface Product {
   isFeatured?: boolean;
 }
 
+export interface ProductDetail extends Product {
+  longDescription: string;
+  specifications: Record<string, string>;
+  features: string[];
+  imageUrls: string[];
+  dimensions?: {
+    width: number;
+    height: number;
+    depth: number;
+    weight: number;
+    unit: string;
+  };
+  warranty?: string;
+  availability: "in-stock" | "out-of-stock" | "limited" | "pre-order";
+  stockQuantity?: number;
+  relatedProductIds?: string[];
+}
+
 export interface Category {
   id: string;
   name: string;

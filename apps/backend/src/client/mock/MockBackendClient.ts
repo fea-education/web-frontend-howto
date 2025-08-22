@@ -1,4 +1,11 @@
-import { Product, Category, Brand, Filter, SortOption } from "@domain/catalog";
+import {
+  Product,
+  Category,
+  Brand,
+  Filter,
+  SortOption,
+  ProductDetail,
+} from "@domain/catalog";
 import { Cart, CartItem, CartSummary } from "@domain/cart";
 import {
   CheckoutInProgress,
@@ -19,6 +26,7 @@ import type {
 
 export interface MockBackendState {
   products: Product[];
+  productDetails: ProductDetail[];
   categories: Category[];
   brands: Brand[];
   carts: Cart[];
@@ -143,6 +151,12 @@ export class MockBackendClient implements BackendClient {
 
       getProductById: async (id: string): Promise<Product | undefined> => {
         return this.state.products.find((p) => p.id === id);
+      },
+
+      getProductDetailById: async (
+        id: string
+      ): Promise<ProductDetail | undefined> => {
+        return this.state.productDetails.find((p) => p.id === id);
       },
 
       listCategories: async (): Promise<Category[]> => {

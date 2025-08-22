@@ -4,6 +4,7 @@ import type {
   Brand,
   Filter,
   SortOption,
+  ProductDetail,
 } from "@domain/catalog";
 import type { Cart, CartItem, CartSummary } from "@domain/cart";
 import type {
@@ -19,6 +20,7 @@ import type { Price, Campaign } from "@domain/pricing";
 export interface CatalogClient {
   browseProducts(filters?: Filter[], sort?: SortOption): Promise<Product[]>;
   getProductById(id: string): Promise<Product | undefined>;
+  getProductDetailById(id: string): Promise<ProductDetail | undefined>;
   listCategories(): Promise<Category[]>;
   listBrands(): Promise<Brand[]>;
 }

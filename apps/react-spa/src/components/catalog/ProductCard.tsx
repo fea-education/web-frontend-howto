@@ -74,41 +74,49 @@ export default function ProductCard({
   const badges = getBadges(product);
 
   return (
-    <Card
-      className="product-card"
-      imageUrl={product.imageUrl}
-      imageAlt={product.name}
-      fallbackIcon="📦"
+    <Link
+      to="/product/$productId"
+      params={{ productId: product.id }}
+      className="btn btn-secondary btn-full"
     >
-      <div className="product-info">
-        <h3 className="product-title">{product.name}</h3>
-        <div className="product-price">
-          {displayPrice}
-          {originalPrice && (
-            <span className="product-price-original">{originalPrice}</span>
-          )}
-        </div>
-        {showRating && (
-          <div className="flex items-center mb-3">
-            <span className="text-sm mr-2">{formatRating(product.rating)}</span>
-            <span className="text-sm text-gray-500">
-              ({product.reviewCount || 0} reviews)
-            </span>
+      <Card
+        className="product-card"
+        imageUrl={product.imageUrl}
+        imageAlt={product.name}
+        fallbackIcon="📦"
+      >
+        <div className="product-info">
+          <h3 className="product-title">{product.name}</h3>
+          <div className="product-price">
+            {displayPrice}
+            {originalPrice && (
+              <span className="product-price-original">{originalPrice}</span>
+            )}
           </div>
-        )}
-        {badges.length > 0 && (
-          <div className="flex items-center mb-3">
-            {badges.map((badge, badgeIndex) => (
-              <span key={badgeIndex} className={`badge badge-${badge.type}`}>
-                {badge.text}
+          {showRating && (
+            <div className="flex items-center mb-3">
+              <span className="text-sm mr-2">
+                {formatRating(product.rating)}
               </span>
-            ))}
-          </div>
-        )}
-        <Link to={linkTo} className="btn btn-primary btn-full">
-          {buttonText}
-        </Link>
-      </div>
-    </Card>
+              <span className="text-sm text-gray-500">
+                ({product.reviewCount || 0} reviews)
+              </span>
+            </div>
+          )}
+          {badges.length > 0 && (
+            <div className="flex items-center mb-3">
+              {badges.map((badge, badgeIndex) => (
+                <span key={badgeIndex} className={`badge badge-${badge.type}`}>
+                  {badge.text}
+                </span>
+              ))}
+            </div>
+          )}
+          <Link to={linkTo} className="btn btn-primary btn-full">
+            {buttonText}
+          </Link>
+        </div>
+      </Card>
+    </Link>
   );
 }

@@ -36,6 +36,23 @@ const initialState = {
     { id: "b1", name: "Brand1" },
     { id: "b2", name: "Brand2" },
   ],
+  productDetails: [
+    {
+      id: "p1",
+      name: "A",
+      description: "",
+      longDescription: "Extended description for product A",
+      categoryId: "c1",
+      brandId: "b1",
+      rating: 4,
+      tags: ["t1"],
+      isFeatured: true,
+      specifications: { spec1: "value1" },
+      features: ["feature1"],
+      imageUrls: ["https://example.com/p1.jpg"],
+      availability: "in-stock" as const,
+    },
+  ],
   carts: [{ id: "cart1", items: [], createdAt: "", updatedAt: "" }],
   checkouts: [],
   orders: [],
@@ -69,6 +86,13 @@ describe("MockBackendClient", () => {
     it("gets product by id", async () => {
       const prod = await client.catalog.getProductById("p2");
       expect(prod?.name).toBe("B");
+    });
+
+    it("gets product detail by id", async () => {
+      const prod = await client.catalog.getProductDetailById("p1");
+      expect(prod?.name).toBe("A");
+      expect(prod?.longDescription).toBe("Extended description for product A");
+      expect(prod?.availability).toBe("in-stock");
     });
 
     it("lists categories and brands", async () => {
