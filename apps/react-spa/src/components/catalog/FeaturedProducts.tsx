@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { useProductsWithPrices } from "../../hooks/useBackend";
+import { useBrowseProductsWithPrices } from "../../hooks/useBackend";
 import ProductCard from "./ProductCard";
 
 export default function FeaturedProducts() {
-  const { data: allProducts, isLoading, error } = useProductsWithPrices();
+  const { data: allProducts, isLoading, error } = useBrowseProductsWithPrices();
 
   if (isLoading) return <div>Loading featured products...</div>;
   if (error) return <div>Error loading featured products</div>;
@@ -32,7 +32,18 @@ export default function FeaturedProducts() {
         </div>
 
         <div className="text-center mt-8">
-          <Link to="/browse" className="btn btn-secondary btn-lg">
+          <Link
+            to="/browse"
+            search={{
+              categoryIds: undefined,
+              brandIds: undefined,
+              minPrice: undefined,
+              maxPrice: undefined,
+              minRating: undefined,
+              sort: undefined,
+            }}
+            className="btn btn-secondary btn-lg"
+          >
             View All Products
           </Link>
         </div>

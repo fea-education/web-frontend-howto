@@ -1,8 +1,8 @@
-import { useCart } from "../../hooks/useBackend";
+import { useGetCart } from "../../hooks/useBackend";
 
 export default function CartItems() {
   // Using the demo cart ID from our mock state
-  const { data: cart, isLoading, error } = useCart("demo-cart");
+  const { data: cart, isLoading, error } = useGetCart("demo-cart");
 
   if (isLoading) return <div>Loading cart...</div>;
   if (error) return <div>Error loading cart</div>;
@@ -19,7 +19,7 @@ export default function CartItems() {
         </h2>
       </div>
       <div className="card-body p-0">
-        {cartItems.map((item) => (
+        {cartItems.map((item: any) => (
           <div key={item.productId} className="cart-item">
             <div className="cart-item-image bg-gray-100 flex items-center justify-center">
               <span className="text-2xl">📦</span>

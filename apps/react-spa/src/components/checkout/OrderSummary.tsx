@@ -1,8 +1,12 @@
-import { useCartSummary } from "../../hooks/useBackend";
+import { useGetCartSummary } from "../../hooks/useBackend";
 
 export default function OrderSummary() {
   // Using the demo cart ID from our mock state
-  const { data: cartSummary, isLoading, error } = useCartSummary("demo-cart");
+  const {
+    data: cartSummary,
+    isLoading,
+    error,
+  } = useGetCartSummary("demo-cart");
 
   if (isLoading) return <div>Loading order summary...</div>;
   if (error) return <div>Error loading order summary</div>;

@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { useCategories } from "../../hooks/useBackend";
+import { useListCategories } from "../../hooks/useBackend";
 import Card from "../common/Card";
 
 export default function CategoryGrid() {
-  const { data: categories, isLoading, error } = useCategories();
+  const { data: categories, isLoading, error } = useListCategories();
 
   if (isLoading) return <div>Loading categories...</div>;
   if (error) return <div>Error loading categories</div>;
@@ -28,7 +28,18 @@ export default function CategoryGrid() {
             >
               <h3 className="product-title">{category.name}</h3>
               <p className="text-secondary">{category.description}</p>
-              <Link to="/browse" className="btn btn-primary btn-sm mt-4">
+              <Link
+                to="/browse"
+                search={{
+                  categoryIds: [category.id],
+                  brandIds: undefined,
+                  minPrice: undefined,
+                  maxPrice: undefined,
+                  minRating: undefined,
+                  sort: undefined,
+                }}
+                className="btn btn-primary btn-sm mt-4"
+              >
                 Browse
               </Link>
             </Card>

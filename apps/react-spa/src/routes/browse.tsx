@@ -3,6 +3,23 @@ import ProductGrid from "@/components/catalog/ProductGrid";
 import ProductFilters from "@/components/catalog/ProductFilters";
 
 export const Route = createFileRoute("/browse")({
+  validateSearch: (search: Record<string, unknown>) => {
+    return {
+      categoryIds: Array.isArray(search.categoryIds)
+        ? (search.categoryIds as string[])
+        : undefined,
+      brandIds: Array.isArray(search.brandIds)
+        ? (search.brandIds as string[])
+        : undefined,
+      minPrice:
+        typeof search.minPrice === "number" ? search.minPrice : undefined,
+      maxPrice:
+        typeof search.maxPrice === "number" ? search.maxPrice : undefined,
+      minRating:
+        typeof search.minRating === "number" ? search.minRating : undefined,
+      sort: typeof search.sort === "string" ? (search.sort as any) : undefined,
+    };
+  },
   component: Browse,
 });
 

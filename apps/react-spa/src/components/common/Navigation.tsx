@@ -22,7 +22,18 @@ export default function Navigation() {
               </Link>
             </li>
             <li>
-              <Link to="/browse" className="[&.active]:text-primary-color">
+              <Link
+                to="/browse"
+                search={{
+                  categoryIds: undefined,
+                  brandIds: undefined,
+                  minPrice: undefined,
+                  maxPrice: undefined,
+                  minRating: undefined,
+                  sort: undefined,
+                }}
+                className="[&.active]:text-primary-color"
+              >
                 Products
               </Link>
             </li>

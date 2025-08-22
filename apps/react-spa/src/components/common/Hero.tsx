@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-router'
+import { Link } from "@tanstack/react-router";
 
 export default function Hero() {
   return (
@@ -7,7 +7,18 @@ export default function Hero() {
         <h1>Discover Amazing Products</h1>
         <p>Shop from thousands of high-quality products at unbeatable prices</p>
         <div className="flex justify-center">
-          <Link to="/browse" className="btn btn-accent btn-lg">
+          <Link
+            to="/browse"
+            search={{
+              categoryIds: undefined,
+              brandIds: undefined,
+              minPrice: undefined,
+              maxPrice: undefined,
+              minRating: undefined,
+              sort: undefined,
+            }}
+            className="btn btn-accent btn-lg"
+          >
             Shop Now
           </Link>
           <a href="#featured" className="btn btn-secondary btn-lg">
@@ -16,5 +27,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
