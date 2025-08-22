@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import Card from "../common/Card";
+import ProductPrice from "../pricing/ProductPrice";
 
 interface Badge {
   text: string;
@@ -14,11 +15,6 @@ interface ProductCardProps {
     imageUrl?: string;
     rating?: number;
     reviewCount?: number;
-    price?: {
-      amount: number;
-      isOnSale?: boolean;
-      saleAmount?: number;
-    };
     tags?: string[];
   };
   showDescription?: boolean;
@@ -33,19 +29,6 @@ export default function ProductCard({
   linkTo = "/checkout",
   buttonText = "Add to Cart",
 }: ProductCardProps) {
-  const formatPrice = (
-    amount: number,
-    isOnSale?: boolean,
-    saleAmount?: number
-  ) => {
-    const displayPrice = `$${amount.toFixed(2)}`;
-    const originalPrice =
-      isOnSale && saleAmount && saleAmount !== amount
-        ? `$${saleAmount.toFixed(2)}`
-        : undefined;
-    return { displayPrice, originalPrice };
-  };
-
   const formatRating = (rating?: number) => {
     if (!rating) return "⭐⭐⭐⭐⭐";
     const stars = Math.round(rating);
@@ -54,7 +37,6 @@ export default function ProductCard({
 
   const getBadges = (product: any): Badge[] => {
     const badges = [];
-    if (product.price?.isOnSale) badges.push({ text: "Sale", type: "success" });
     if (product.tags?.includes("new"))
       badges.push({ text: "New", type: "primary" });
     if (product.tags?.includes("limited"))
@@ -66,11 +48,6 @@ export default function ProductCard({
     return badges;
   };
 
-  const { displayPrice, originalPrice } = formatPrice(
-    product.price?.amount || 0,
-    product.price?.isOnSale,
-    product.price?.saleAmount
-  );
   const badges = getBadges(product);
 
   return (
@@ -87,12 +64,11 @@ export default function ProductCard({
       >
         <div className="product-info">
           <h3 className="product-title">{product.name}</h3>
-          <div className="product-price">
-            {displayPrice}
-            {originalPrice && (
-              <span className="product-price-original">{originalPrice}</span>
-            )}
-          </div>
+          <ProductPrice
+            productId={product.id}
+            size="medium"
+            className="product-price mb-3"
+          />
           {showRating && (
             <div className="flex items-center mb-3">
               <span className="text-sm mr-2">

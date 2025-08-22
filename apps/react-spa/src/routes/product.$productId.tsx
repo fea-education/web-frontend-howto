@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  useGetProductDetailById,
-  useCalculateAllPrices,
-} from "../hooks/useBackend";
+import { useGetProductDetailById } from "../hooks/useBackend";
+import { ProductPrice } from "../components/pricing";
 
 export const Route = createFileRoute("/product/$productId")({
   component: ProductDetailPage,
@@ -15,7 +13,6 @@ function ProductDetailPage() {
     isLoading,
     error,
   } = useGetProductDetailById(productId);
-  const { data: prices } = useCalculateAllPrices(product ? [product.id] : []);
 
   if (isLoading) {
     return (
@@ -36,8 +33,6 @@ function ProductDetailPage() {
       </div>
     );
   }
-
-  const price = prices?.find((p: any) => p.productId === product.id);
 
   return (
     <div className="container">
@@ -95,25 +90,11 @@ function ProductDetailPage() {
               )}
 
               {/* Price */}
-              {price && (
-                <div className="mb-6">
-                  {price.isOnSale ? (
-                    <div>
-                      <span className="text-3xl font-weight-600 text-red-600">
-                        ${price.saleAmount?.toFixed(2)}
-                      </span>
-                      <span className="text-lg text-gray-500 line-through ml-2">
-                        ${price.amount.toFixed(2)}
-                      </span>
-                      <span className="badge badge-success ml-2">Sale</span>
-                    </div>
-                  ) : (
-                    <span className="text-3xl font-weight-600">
-                      ${price.amount.toFixed(2)}
-                    </span>
-                  )}
-                </div>
-              )}
+              <ProductPrice
+                productId={product.id}
+                size="large"
+                className="mb-6"
+              />
 
               {/* Availability */}
               <div className="mb-6">
