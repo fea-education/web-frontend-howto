@@ -7,21 +7,29 @@ export const mockState: MockBackendState = {
       id: "electronics",
       name: "Electronics",
       description: "Latest gadgets and tech",
+      imageUrl:
+        "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=300&h=200&fit=crop",
     },
     {
       id: "fashion",
       name: "Fashion",
       description: "Trendy clothing & accessories",
+      imageUrl:
+        "https://images.unsplash.com/photo-1445205170230-053b83016050?w=300&h=200&fit=crop",
     },
     {
       id: "home-garden",
       name: "Home & Garden",
       description: "Beautiful home essentials",
+      imageUrl:
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop",
     },
     {
       id: "sports",
       name: "Sports",
       description: "Gear for active lifestyle",
+      imageUrl:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop",
     },
   ],
 

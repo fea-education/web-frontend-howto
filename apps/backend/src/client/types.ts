@@ -7,7 +7,6 @@ import type {
 } from "@domain/catalog";
 import type { Cart, CartItem, CartSummary } from "@domain/cart";
 import type {
-  Checkout,
   CheckoutInProgress,
   ShippingInfo,
   PaymentInfo,

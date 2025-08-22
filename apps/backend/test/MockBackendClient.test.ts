@@ -29,8 +29,8 @@ const initialState = {
     },
   ],
   categories: [
-    { id: "c1", name: "Cat1" },
-    { id: "c2", name: "Cat2" },
+    { id: "c1", name: "Cat1", imageUrl: "https://example.com/cat1.jpg" },
+    { id: "c2", name: "Cat2", imageUrl: "https://example.com/cat2.jpg" },
   ],
   brands: [
     { id: "b1", name: "Brand1" },

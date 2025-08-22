@@ -22,7 +22,11 @@ export default function CategoryGrid() {
             <div key={category.id} className="card">
               <div className="card-body text-center">
                 <div className="product-image bg-gray-100 mb-4 flex items-center justify-center">
-                  <span className="text-4xl">📦</span>
+                  <img
+                    src={category.imageUrl}
+                    alt={category.name}
+                    className="w-full h-32 object-cover rounded"
+                  />
                 </div>
                 <h3 className="product-title">{category.name}</h3>
                 <p className="text-secondary">{category.description}</p>
