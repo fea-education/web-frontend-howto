@@ -73,6 +73,8 @@ export const mockState: MockBackendState = {
       id: "iphone-15-pro",
       name: "iPhone 15 Pro",
       description: "Latest smartphone with advanced features",
+      imageUrl:
+        "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=300&fit=crop",
       categoryId: "electronics",
       brandId: "apple",
       rating: 5.0,
@@ -84,6 +86,8 @@ export const mockState: MockBackendState = {
       id: "macbook-pro-16",
       name: 'MacBook Pro 16"',
       description: "Professional laptop for creators",
+      imageUrl:
+        "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=300&fit=crop",
       categoryId: "electronics",
       brandId: "apple",
       rating: 5.0,
@@ -95,6 +99,8 @@ export const mockState: MockBackendState = {
       id: "airpods-pro",
       name: "AirPods Pro",
       description: "Premium wireless earbuds",
+      imageUrl:
+        "https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?w=400&h=300&fit=crop",
       categoryId: "electronics",
       brandId: "apple",
       rating: 4.0,
@@ -106,6 +112,8 @@ export const mockState: MockBackendState = {
       id: "apple-watch-series-9",
       name: "Apple Watch Series 9",
       description: "Advanced fitness and health tracking",
+      imageUrl:
+        "https://images.unsplash.com/photo-1551816230-ef5deaed4a26?w=400&h=300&fit=crop",
       categoryId: "electronics",
       brandId: "apple",
       rating: 5.0,
@@ -117,6 +125,8 @@ export const mockState: MockBackendState = {
       id: "4k-monitor-27",
       name: '4K Monitor 27"',
       description: "Ultra HD display for professionals",
+      imageUrl:
+        "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop",
       categoryId: "electronics",
       brandId: "generic",
       rating: 4.0,
@@ -128,6 +138,8 @@ export const mockState: MockBackendState = {
       id: "professional-camera",
       name: "Professional Camera",
       description: "High-quality DSLR camera",
+      imageUrl:
+        "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=300&fit=crop",
       categoryId: "electronics",
       brandId: "generic",
       rating: 5.0,
@@ -139,6 +151,8 @@ export const mockState: MockBackendState = {
       id: "gaming-laptop",
       name: "Gaming Laptop",
       description: "High-performance laptop for gaming",
+      imageUrl:
+        "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=300&fit=crop",
       categoryId: "electronics",
       brandId: "generic",
       rating: 4.5,
@@ -150,6 +164,8 @@ export const mockState: MockBackendState = {
       id: "wireless-headphones",
       name: "Wireless Headphones",
       description: "Premium wireless headphones",
+      imageUrl:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
       categoryId: "electronics",
       brandId: "generic",
       rating: 4.0,

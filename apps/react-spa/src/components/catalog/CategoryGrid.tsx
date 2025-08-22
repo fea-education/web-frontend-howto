@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useCategories } from "../../hooks/useBackend";
+import Card from "../common/Card";
 
 export default function CategoryGrid() {
   const { data: categories, isLoading, error } = useCategories();
@@ -19,22 +20,18 @@ export default function CategoryGrid() {
 
         <div className="grid grid-cols-4">
           {categories?.map((category) => (
-            <div key={category.id} className="card">
-              <div className="card-body text-center">
-                <div className="product-image bg-gray-100 mb-4 flex items-center justify-center">
-                  <img
-                    src={category.imageUrl}
-                    alt={category.name}
-                    className="w-full h-32 object-cover rounded"
-                  />
-                </div>
-                <h3 className="product-title">{category.name}</h3>
-                <p className="text-secondary">{category.description}</p>
-                <Link to="/browse" className="btn btn-primary btn-sm mt-4">
-                  Browse
-                </Link>
-              </div>
-            </div>
+            <Card
+              key={category.id}
+              className="text-center"
+              imageUrl={category.imageUrl}
+              imageAlt={category.name}
+            >
+              <h3 className="product-title">{category.name}</h3>
+              <p className="text-secondary">{category.description}</p>
+              <Link to="/browse" className="btn btn-primary btn-sm mt-4">
+                Browse
+              </Link>
+            </Card>
           ))}
         </div>
       </div>
