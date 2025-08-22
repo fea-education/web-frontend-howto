@@ -11,7 +11,13 @@ export default function Navigation() {
 
           <ul className="navbar-nav hidden-mobile">
             <li>
-              <Link to="/" className="[&.active]:text-primary-color">
+              <Link
+                to="/"
+                className="[&.active]:text-primary-color"
+                activeOptions={{
+                  includeHash: true,
+                }}
+              >
                 Home
               </Link>
             </li>
@@ -21,13 +27,40 @@ export default function Navigation() {
               </Link>
             </li>
             <li>
-              <a href="#categories">Categories</a>
+              <Link
+                to="/"
+                hash="categories"
+                className="[&.active]:text-primary-color"
+                activeOptions={{
+                  includeHash: true,
+                }}
+              >
+                Categories
+              </Link>
             </li>
             <li>
-              <a href="#about">About</a>
+              <Link
+                to="/"
+                hash="about"
+                className="[&.active]:text-primary-color"
+                activeOptions={{
+                  includeHash: true,
+                }}
+              >
+                About
+              </Link>
             </li>
             <li>
-              <a href="#contact">Contact</a>
+              <Link
+                to="/"
+                hash="contact"
+                className="[&.active]:text-primary-color"
+                activeOptions={{
+                  includeHash: true,
+                }}
+              >
+                Contact
+              </Link>
             </li>
           </ul>
 

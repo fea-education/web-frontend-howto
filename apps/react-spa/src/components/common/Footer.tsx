@@ -24,7 +24,7 @@ export default function Footer() {
 
           <div>
             <h3>Quick Links</h3>
-            <ul style={{ listStyle: 'none' }}>
+            <ul style={{ listStyle: "none" }}>
               <li className="mb-2">
                 <a href="/">Home</a>
               </li>
@@ -45,7 +45,7 @@ export default function Footer() {
 
           <div>
             <h3>Customer Service</h3>
-            <ul style={{ listStyle: 'none' }}>
+            <ul style={{ listStyle: "none" }}>
               <li className="mb-2">
                 <a href="#">Help Center</a>
               </li>
@@ -64,13 +64,14 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div id="contact">
             <h3>Contact Info</h3>
-            <ul style={{ listStyle: 'none' }}>
+            <ul style={{ listStyle: "none" }}>
               <li className="mb-2">📞 1-800-SHOPHUB</li>
               <li className="mb-2">✉️ support@shophub.com</li>
               <li className="mb-2">
-                📍 123 Commerce St<br />
+                📍 123 Commerce St
+                <br />
                 Shopping City, SC 12345
               </li>
             </ul>
@@ -85,5 +86,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
