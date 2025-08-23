@@ -367,23 +367,13 @@ const productDetails = toProductDetails(products, [
   // Electronics - Apple
   {
     id: "iphone-15-pro",
-    name: "iPhone 15 Pro",
-    description: "Latest smartphone with advanced features",
     longDescription:
       "The iPhone 15 Pro represents the pinnacle of smartphone technology, featuring the revolutionary A17 Pro chip, titanium design, and Action Button. With its advanced camera system including a 48MP Main camera, 3x Telephoto camera, and Ultra Wide camera, you can capture stunning photos and videos in any lighting condition. The Super Retina XDR display with ProMotion technology delivers an incredibly smooth and responsive experience.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=400&h=300&fit=crop",
     ],
-    categoryId: "electronics",
-    brandId: "apple",
-    rating: 5.0,
-    reviewCount: 245,
-    isFeatured: true,
-    tags: ["smartphone", "latest", "premium"],
     specifications: {
       Display: "6.1-inch Super Retina XDR",
       Chip: "A17 Pro",
@@ -419,23 +409,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "nike-air-max-90",
-    name: "Nike Air Max 90",
-    description: "Classic sneakers with air cushioning",
     longDescription:
       "The Nike Air Max 90 stays true to its OG running roots with the iconic Waffle sole, stitched overlays and classic TPU details. Classic colors celebrate your fresh look while Max Air cushioning adds comfort to your journey.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=300&fit=crop",
     ],
-    categoryId: "fashion",
-    brandId: "nike",
-    rating: 4.5,
-    reviewCount: 892,
-    isFeatured: true,
-    tags: ["sneakers", "classic", "comfort"],
     specifications: {
       Upper: "Leather and synthetic materials",
       Midsole: "Max Air unit for cushioning",
@@ -469,23 +449,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "vintage-typewriter",
-    name: "Vintage Typewriter",
-    description: "Classic mechanical typewriter for writing enthusiasts",
     longDescription:
       "Step back in time with this beautifully restored vintage typewriter. Perfect for writers who appreciate the tactile experience of mechanical keys and the satisfaction of creating physical documents. This classic machine combines nostalgic charm with functional reliability.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop",
     ],
-    categoryId: "home-garden",
-    brandId: "generic",
-    rating: 4.5,
-    reviewCount: 289,
-    isFeatured: true,
-    tags: ["typewriter", "vintage", "writing"],
     specifications: {
       Era: "1950s-1960s",
       Keyboard: "QWERTY layout, 42 keys",
@@ -518,23 +488,13 @@ const productDetails = toProductDetails(products, [
   // Electronics - Apple (continued)
   {
     id: "macbook-pro-16",
-    name: 'MacBook Pro 16"',
-    description: "Professional laptop for creators",
     longDescription:
       "The 16-inch MacBook Pro with M3 Pro or M3 Max chip delivers exceptional performance for the most demanding workflows. Whether you're editing 8K video, compiling code, or running complex simulations, this laptop handles it all with ease. The stunning Liquid Retina XDR display brings your work to life with extreme dynamic range and over a billion colors.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop",
     ],
-    categoryId: "electronics",
-    brandId: "apple",
-    rating: 5.0,
-    reviewCount: 189,
-    isFeatured: true,
-    tags: ["laptop", "professional", "new"],
     specifications: {
       Display: "16.2-inch Liquid Retina XDR",
       Chip: "Apple M3 Pro or M3 Max",
@@ -567,23 +527,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "airpods-pro",
-    name: "AirPods Pro",
-    description: "Premium wireless earbuds",
     longDescription:
       "AirPods Pro (2nd generation) feature the Apple-designed H2 chip, pushing advanced audio performance even further. From Adaptive Transparency to Personalized Spatial Audio, AirPods Pro allow you to hear the world your way. The improved Active Noise Cancellation reduces more unwanted noise, so nothing interrupts your listening experience.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1606400082777-ef05f3c5cde2?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400&h=300&fit=crop",
     ],
-    categoryId: "electronics",
-    brandId: "apple",
-    rating: 4.0,
-    reviewCount: 512,
-    isFeatured: true,
-    tags: ["wireless", "earbuds", "limited"],
     specifications: {
       Chip: "Apple H2",
       "Active Noise Cancellation": "Yes, adaptive",
@@ -619,23 +569,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "apple-watch-series-9",
-    name: "Apple Watch Series 9",
-    description: "Advanced fitness and health tracking",
     longDescription:
       "Apple Watch Series 9 features the breakthrough S9 SiP, which powers a magical new way to use your watch without even touching the screen. Advanced health features help you gain insights into your overall wellness. And it's carbon neutral when paired with the latest Sport Loop.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1551816230-ef5deaed4a26?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1551816230-ef5deaed4a26?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1544117519-31a4b719223d?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1579586337278-3f436f25d4d6?w=400&h=300&fit=crop",
     ],
-    categoryId: "electronics",
-    brandId: "apple",
-    rating: 5.0,
-    reviewCount: 332,
-    isFeatured: true,
-    tags: ["smartwatch", "fitness", "bestseller"],
     specifications: {
       Display: "Always-On Retina LTPO OLED",
       Chip: "S9 SiP with 64-bit dual-core processor",
@@ -667,23 +607,13 @@ const productDetails = toProductDetails(products, [
   // Electronics - Samsung
   {
     id: "samsung-galaxy-s24",
-    name: "Samsung Galaxy S24 Ultra",
-    description: "Flagship Android smartphone",
     longDescription:
       "The Samsung Galaxy S24 Ultra redefines premium smartphones with Galaxy AI, making every moment extraordinary. Features a stunning 6.8-inch Dynamic AMOLED 2X display, advanced S Pen functionality, and pro-grade cameras that capture incredible detail. Built with titanium for durability and equipped with the powerful Snapdragon 8 Gen 3 processor.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=400&h=300&fit=crop",
     ],
-    categoryId: "electronics",
-    brandId: "samsung",
-    rating: 4.8,
-    reviewCount: 428,
-    isFeatured: true,
-    tags: ["smartphone", "android", "premium"],
     specifications: {
       Display: '6.8" Dynamic AMOLED 2X, 120Hz',
       Processor: "Snapdragon 8 Gen 3 for Galaxy",
@@ -716,23 +646,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "samsung-tv-65",
-    name: 'Samsung 65" Neo QLED 4K TV',
-    description: "Premium 4K smart television",
     longDescription:
       "Experience breathtaking picture quality with Samsung's 65-inch Neo QLED 4K TV. Quantum Matrix Technology with Mini LEDs delivers incredibly detailed contrast and brilliant colors. Powered by the Neo Quantum Processor 4K, this TV optimizes every scene for an immersive viewing experience with smart features and gaming capabilities.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1571037589271-4b2ba0b8bde6?w=400&h=300&fit=crop",
     ],
-    categoryId: "electronics",
-    brandId: "samsung",
-    rating: 4.6,
-    reviewCount: 89,
-    isFeatured: false,
-    tags: ["tv", "4k", "smart"],
     specifications: {
       "Screen Size": "65 inches",
       Resolution: "4K Ultra HD (3840 x 2160)",
@@ -765,23 +685,13 @@ const productDetails = toProductDetails(products, [
   // Electronics - Sony
   {
     id: "sony-wh-1000xm5",
-    name: "Sony WH-1000XM5",
-    description: "Industry-leading noise-canceling headphones",
     longDescription:
       "The Sony WH-1000XM5 headphones take digital noise canceling to the next level with the new Integrated Processor V1 and dual noise sensor technology. Enjoy exceptional sound quality, crystal clear hands-free calling, and up to 30 hours of battery life. The ultra-comfortable, lightweight design makes them perfect for long listening sessions.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=300&fit=crop",
     ],
-    categoryId: "electronics",
-    brandId: "sony",
-    rating: 4.7,
-    reviewCount: 367,
-    isFeatured: true,
-    tags: ["headphones", "wireless", "bestseller"],
     specifications: {
       "Driver Unit": "30mm dynamic drivers",
       "Noise Canceling": "Industry-leading with V1 processor",
@@ -817,23 +727,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "sony-camera-a7iv",
-    name: "Sony α7 IV Camera",
-    description: "Full-frame mirrorless camera",
     longDescription:
       "The Sony α7 IV brings together high-resolution and high-speed performance in a versatile full-frame camera. With its 33MP sensor, advanced autofocus system, and 4K video recording capabilities, it's perfect for both photography enthusiasts and professional content creators. The improved battery life and weather sealing make it ideal for any shooting environment.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=300&fit=crop",
     ],
-    categoryId: "electronics",
-    brandId: "sony",
-    rating: 4.9,
-    reviewCount: 156,
-    isFeatured: true,
-    tags: ["camera", "professional", "premium"],
     specifications: {
       Sensor: "33MP full-frame Exmor R CMOS",
       Processor: "BIONZ XR imaging processor",
@@ -866,23 +766,13 @@ const productDetails = toProductDetails(products, [
   // Electronics - Other
   {
     id: "4k-monitor-27",
-    name: '27" 4K USB-C Monitor',
-    description: "Professional 4K display with USB-C",
     longDescription:
       "This 27-inch 4K monitor delivers stunning visual clarity with USB-C connectivity for a streamlined workspace. Perfect for creative professionals, developers, and anyone who demands excellent color accuracy and sharp detail. The single USB-C cable provides power, data, and video transmission, reducing desktop clutter while maximizing productivity.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1547394765-185e1e68f34e?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1551721434-8b94ddff0e6d?w=400&h=300&fit=crop",
     ],
-    categoryId: "electronics",
-    brandId: "dell",
-    rating: 4.4,
-    reviewCount: 203,
-    isFeatured: false,
-    tags: ["monitor", "4k", "usb-c"],
     specifications: {
       "Screen Size": "27 inches",
       Resolution: "4K UHD (3840 x 2160)",
@@ -914,23 +804,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "gaming-laptop",
-    name: "Gaming Laptop RTX 4070",
-    description: "High-performance gaming laptop",
     longDescription:
       "Built for serious gamers and content creators, this high-performance laptop features the latest NVIDIA GeForce RTX 4070 graphics card and Intel Core i7 processor. With a 144Hz display, advanced cooling system, and customizable RGB keyboard, it delivers the power and performance needed for the most demanding games and creative applications.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop",
     ],
-    categoryId: "electronics",
-    brandId: "asus",
-    rating: 4.5,
-    reviewCount: 124,
-    isFeatured: true,
-    tags: ["laptop", "gaming", "new"],
     specifications: {
       Display: '15.6" FHD 144Hz IPS',
       Processor: "Intel Core i7-13700H",
@@ -962,23 +842,13 @@ const productDetails = toProductDetails(products, [
   // Fashion - Nike (continued)
   {
     id: "nike-dri-fit-shirt",
-    name: "Nike Dri-FIT Running Shirt",
-    description: "Moisture-wicking athletic shirt",
     longDescription:
       "Stay cool and comfortable during your most intense workouts with the Nike Dri-FIT Running Shirt. Featuring Nike's signature moisture-wicking technology, this lightweight shirt pulls sweat away from your skin for quick evaporation. The ergonomic design and breathable fabric ensure unrestricted movement and all-day comfort.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1556821840-3a9c6b1a2d88?w=400&h=300&fit=crop",
     ],
-    categoryId: "fashion",
-    brandId: "nike",
-    rating: 4.3,
-    reviewCount: 287,
-    isFeatured: false,
-    tags: ["shirt", "athletic", "breathable"],
     specifications: {
       Material: "100% polyester with Dri-FIT technology",
       Fit: "Standard athletic fit",
@@ -1010,23 +880,13 @@ const productDetails = toProductDetails(products, [
   // Fashion - Adidas
   {
     id: "adidas-ultraboost-22",
-    name: "Adidas Ultraboost 22",
-    description: "Premium running shoes with Boost technology",
     longDescription:
       "Experience the ultimate in running comfort with the Adidas Ultraboost 22. Featuring the responsive Boost midsole and Primeknit+ upper, these shoes provide energy return with every step. The Linear Energy Push system and Stretchweb outsole deliver a smooth, efficient stride for runners of all levels.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=300&fit=crop",
     ],
-    categoryId: "fashion",
-    brandId: "adidas",
-    rating: 4.6,
-    reviewCount: 412,
-    isFeatured: true,
-    tags: ["shoes", "running", "bestseller"],
     specifications: {
       Upper: "Primeknit+ with engineered textile",
       Midsole: "Boost energy-returning foam",
@@ -1062,23 +922,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "adidas-hoodie",
-    name: "Adidas Trefoil Hoodie",
-    description: "Classic comfort hoodie",
     longDescription:
       "The iconic Adidas Trefoil Hoodie combines classic streetwear style with modern comfort. Made from soft cotton fleece, this hoodie features the legendary Trefoil logo and offers a relaxed fit perfect for everyday wear. Whether you're lounging at home or heading out with friends, this hoodie delivers timeless style and cozy comfort.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1556821840-3a9c6b1a2d88?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1556821840-3a9c6b1a2d88?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&h=300&fit=crop",
     ],
-    categoryId: "fashion",
-    brandId: "adidas",
-    rating: 4.2,
-    reviewCount: 178,
-    isFeatured: false,
-    tags: ["hoodie", "casual", "comfort"],
     specifications: {
       Material: "70% cotton, 30% recycled polyester fleece",
       Fit: "Regular relaxed fit",
@@ -1110,23 +960,13 @@ const productDetails = toProductDetails(products, [
   // Fashion - Other brands
   {
     id: "denim-jacket",
-    name: "Vintage Denim Jacket",
-    description: "Classic denim jacket with vintage wash",
     longDescription:
       "This vintage-inspired denim jacket brings timeless style to any wardrobe. Crafted from premium cotton denim with authentic distressing and fading, it features classic details like copper rivets, chest pockets, and adjustable cuffs. The perfect layering piece that gets better with age and wear.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=400&h=300&fit=crop",
     ],
-    categoryId: "fashion",
-    brandId: "levis",
-    rating: 4.4,
-    reviewCount: 156,
-    isFeatured: false,
-    tags: ["jacket", "denim", "vintage"],
     specifications: {
       Material: "100% cotton denim, 12oz weight",
       Wash: "Vintage stone wash",
@@ -1158,23 +998,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "leather-boots",
-    name: "Premium Leather Boots",
-    description: "Handcrafted leather work boots",
     longDescription:
       "These premium leather boots combine rugged durability with refined style. Handcrafted from full-grain leather with Goodyear welt construction, they're built to last for years. The cushioned insole and supportive arch provide all-day comfort, while the oil-resistant outsole delivers reliable traction in any condition.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1608667508764-6759d6d6ee1b?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop",
     ],
-    categoryId: "fashion",
-    brandId: "redwing",
-    rating: 4.8,
-    reviewCount: 243,
-    isFeatured: true,
-    tags: ["boots", "leather", "premium"],
     specifications: {
       Upper: "Full-grain leather",
       Construction: "Goodyear welt",
@@ -1206,23 +1036,13 @@ const productDetails = toProductDetails(products, [
   // Sports - Nike
   {
     id: "nike-basketball",
-    name: "Nike Elite Basketball",
-    description: "Official size basketball",
     longDescription:
       "The Nike Elite Basketball is designed for serious players who demand the best. Featuring a composite leather cover with deep channels for superior grip and control, this official size basketball delivers consistent performance on both indoor and outdoor courts. The cushioned core provides excellent bounce and responsiveness.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1519861531473-9200262188bf?w=400&h=300&fit=crop",
     ],
-    categoryId: "sports",
-    brandId: "nike",
-    rating: 4.5,
-    reviewCount: 189,
-    isFeatured: true,
-    tags: ["basketball", "official", "grip"],
     specifications: {
       Size: "Official size 7 (29.5 inches)",
       Material: "Composite leather cover",
@@ -1258,23 +1078,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "nike-gym-bag",
-    name: "Nike Brasilia Training Duffel",
-    description: "Spacious gym bag for training",
     longDescription:
       "The Nike Brasilia Training Duffel is designed for athletes who need reliable storage for all their gear. With multiple compartments, including a ventilated shoe compartment and external pockets, this duffel keeps your equipment organized and accessible. The durable polyester construction and reinforced handles ensure it can handle daily use.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&h=300&fit=crop",
     ],
-    categoryId: "sports",
-    brandId: "nike",
-    rating: 4.3,
-    reviewCount: 156,
-    isFeatured: false,
-    tags: ["bag", "training", "storage"],
     specifications: {
       Capacity: "40 liters",
       Material: "Durable polyester fabric",
@@ -1306,23 +1116,13 @@ const productDetails = toProductDetails(products, [
   // Sports - Adidas
   {
     id: "adidas-soccer-ball",
-    name: "Adidas Tango Soccer Ball",
-    description: "FIFA-approved soccer ball",
     longDescription:
       "The Adidas Tango Soccer Ball brings professional quality to every game. FIFA-approved for official matches, this ball features a durable TPU cover with classic Tango graphics and machine-stitched construction for consistent performance. The butyl bladder ensures optimal air retention and ball shape maintenance.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=300&fit=crop",
     ],
-    categoryId: "sports",
-    brandId: "adidas",
-    rating: 4.6,
-    reviewCount: 298,
-    isFeatured: true,
-    tags: ["soccer", "fifa", "professional"],
     specifications: {
       Size: "Size 5 (official)",
       Approval: "FIFA Quality certification",
@@ -1358,23 +1158,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "adidas-yoga-mat",
-    name: "Adidas Premium Yoga Mat",
-    description: "Non-slip yoga and exercise mat",
     longDescription:
       "The Adidas Premium Yoga Mat provides the perfect foundation for your yoga practice and fitness routine. Made from eco-friendly materials with superior grip and cushioning, this mat offers stability and comfort during poses and exercises. The lightweight design and carrying strap make it easy to transport to classes or outdoor sessions.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=400&h=300&fit=crop",
     ],
-    categoryId: "sports",
-    brandId: "adidas",
-    rating: 4.4,
-    reviewCount: 167,
-    isFeatured: false,
-    tags: ["yoga", "mat", "fitness"],
     specifications: {
       Material: "Eco-friendly TPE (thermoplastic elastomer)",
       Thickness: "6mm for optimal cushioning",
@@ -1406,23 +1196,13 @@ const productDetails = toProductDetails(products, [
   // Sports - Fitness Equipment
   {
     id: "dumbbells-set",
-    name: "Adjustable Dumbbells Set",
-    description: "Space-saving adjustable weight set",
     longDescription:
       "This innovative adjustable dumbbell set replaces 15 sets of traditional dumbbells, saving space while providing versatile weight training options. With quick-change technology, you can adjust weights from 5 to 50 pounds per dumbbell in 5-pound increments. The ergonomic handles and secure locking mechanism ensure safe and comfortable workouts.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop",
     ],
-    categoryId: "sports",
-    brandId: "bowflex",
-    rating: 4.7,
-    reviewCount: 324,
-    isFeatured: true,
-    tags: ["dumbbells", "adjustable", "space-saving"],
     specifications: {
       "Weight Range": "5-50 lbs per dumbbell",
       Increments: "5 lb increments",
@@ -1454,23 +1234,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "resistance-bands",
-    name: "Resistance Bands Set",
-    description: "Complete resistance training kit",
     longDescription:
       "This comprehensive resistance bands set provides a complete strength training solution for home or travel. The set includes five resistance levels, door anchor, ankle straps, and exercise guides. Made from high-quality latex, these bands offer smooth resistance and durability for effective full-body workouts anywhere.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
     ],
-    categoryId: "sports",
-    brandId: "trx",
-    rating: 4.5,
-    reviewCount: 278,
-    isFeatured: false,
-    tags: ["resistance", "bands", "portable"],
     specifications: {
       Bands: "5 resistance levels (10-50 lbs)",
       Material: "High-quality natural latex",
@@ -1507,23 +1277,13 @@ const productDetails = toProductDetails(products, [
   // Home & Garden
   {
     id: "coffee-maker",
-    name: "Premium Coffee Maker",
-    description: "Programmable drip coffee maker",
     longDescription:
       "Start your day perfectly with this premium programmable coffee maker. Featuring a thermal carafe, built-in grinder, and customizable brew strength, it delivers café-quality coffee at home. The intuitive digital display and 24-hour programming ensure your coffee is ready when you are, while the auto-shutoff provides peace of mind.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=300&fit=crop",
     ],
-    categoryId: "home-garden",
-    brandId: "cuisinart",
-    rating: 4.3,
-    reviewCount: 289,
-    isFeatured: false,
-    tags: ["coffee", "programmable", "thermal"],
     specifications: {
       Display: "12-cup thermal carafe",
       Grinder: "Built-in burr grinder",
@@ -1555,23 +1315,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "dining-table",
-    name: "Modern Dining Table",
-    description: "6-person solid wood dining table",
     longDescription:
       "This beautifully crafted modern dining table combines contemporary design with timeless appeal. Made from sustainably sourced solid wood with a rich walnut finish, it comfortably seats six people. The clean lines and sturdy construction make it perfect for both everyday meals and special occasions, while the durable finish resists scratches and stains.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop",
     ],
-    categoryId: "home-garden",
-    brandId: "westelm",
-    rating: 4.6,
-    reviewCount: 134,
-    isFeatured: true,
-    tags: ["table", "dining", "modern"],
     specifications: {
       Material: "Solid walnut wood",
       Seating: "6 people comfortably",
@@ -1603,23 +1353,13 @@ const productDetails = toProductDetails(products, [
   },
   {
     id: "garden-tools",
-    name: "Professional Garden Tool Set",
-    description: "Complete gardening toolkit",
     longDescription:
       "This professional garden tool set provides everything you need for successful gardening. The set includes essential hand tools, pruning shears, a watering can, and kneeling pad, all made from high-quality materials. The ergonomic designs reduce hand fatigue, while the rust-resistant finishes ensure long-lasting performance in all weather conditions.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop",
     imageUrls: [
       "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=300&fit=crop",
       "https://images.unsplash.com/photo-1595503240812-7286dafaddc1?w=400&h=300&fit=crop",
     ],
-    categoryId: "home-garden",
-    brandId: "fiskars",
-    rating: 4.5,
-    reviewCount: 201,
-    isFeatured: false,
-    tags: ["garden", "tools", "professional"],
     specifications: {
       "Tools Included": "10-piece complete set",
       Materials: "Stainless steel with ergonomic handles",
