@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import Card from "../common/Card";
 import ProductPrice from "../pricing/ProductPrice";
+import AddToCartButton from "../cart/AddToCartButton";
 
 interface Badge {
   text: string;
@@ -19,14 +20,12 @@ interface ProductCardProps {
   };
   showDescription?: boolean;
   showRating?: boolean;
-  linkTo?: string;
   buttonText?: string;
 }
 
 export default function ProductCard({
   product,
   showRating = false,
-  linkTo = "/checkout",
   buttonText = "Add to Cart",
 }: ProductCardProps) {
   const formatRating = (rating?: number) => {
@@ -88,9 +87,14 @@ export default function ProductCard({
               ))}
             </div>
           )}
-          <Link to={linkTo} className="btn btn-primary btn-full">
+          <AddToCartButton
+            productId={product.id}
+            productName={product.name}
+            productImageUrl={product.imageUrl}
+            fullWidth
+          >
             {buttonText}
-          </Link>
+          </AddToCartButton>
         </div>
       </Card>
     </Link>

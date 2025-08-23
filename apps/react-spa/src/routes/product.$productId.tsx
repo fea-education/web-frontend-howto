@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useGetProductDetailById } from "../hooks/useBackend";
 import ProductPrice from "../components/pricing/ProductPrice";
+import AddToCartButton from "../components/cart/AddToCartButton";
 
 export const Route = createFileRoute("/product/$productId")({
   component: ProductDetailPage,
@@ -136,14 +137,19 @@ function ProductDetailPage() {
               )}
 
               {/* Add to Cart Button */}
-              <button
-                className="btn btn-primary btn-lg btn-full mb-4"
+              <AddToCartButton
+                productId={product.id}
+                productName={product.name}
+                productImageUrl={product.imageUrl}
+                size="lg"
+                fullWidth
                 disabled={product.availability === "out-of-stock"}
+                className="mb-4"
               >
                 {product.availability === "pre-order"
                   ? "Pre-Order Now"
                   : "Add to Cart"}
-              </button>
+              </AddToCartButton>
 
               {/* Warranty */}
               {product.warranty && (

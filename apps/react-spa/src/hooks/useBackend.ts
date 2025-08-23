@@ -1,6 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { mockBackendClient } from "../../../backend/src/client/mock/MockBackendClient";
 import type { Filter, SortOption } from "@domain/catalog";
+import type { CartItem } from "@domain/cart";
 
 // Catalog hooks
 export function useBrowseProducts(filters?: Filter[], sort?: SortOption) {
@@ -128,5 +129,45 @@ export function useBrowseProductsWithPrices(
     },
     enabled: !!products,
     ...productsQuery,
+  });
+}
+
+// Cart mutation hooks
+export function useAddToCart() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ cartId, item }: { cartId: string; item: CartItem }) =>
+      mockBackendClient.cart.addItem(cartId, item),
+    onSuccess: (_, { cartId }) => {
+      queryClient.invalidateQueries({ queryKey: ["cart", cartId] });
+      queryClient.invalidateQueries({ queryKey: ["cart-summary", cartId] });
+    },
+  });
+}
+
+export function useRemoveFromCart() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ cartId, itemId }: { cartId: string; itemId: string }) =>
+      mockBackendClient.cart.removeItem(cartId, itemId),
+    onSuccess: (_, { cartId }) => {
+      queryClient.invalidateQueries({ queryKey: ["cart", cartId] });
+      queryClient.invalidateQueries({ queryKey: ["cart-summary", cartId] });
+    },
+  });
+}
+
+export function useUpdateCartItem() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ cartId, item }: { cartId: string; item: CartItem }) =>
+      mockBackendClient.cart.updateItem(cartId, item),
+    onSuccess: (_, { cartId }) => {
+      queryClient.invalidateQueries({ queryKey: ["cart", cartId] });
+      queryClient.invalidateQueries({ queryKey: ["cart-summary", cartId] });
+    },
   });
 }
