@@ -1710,37 +1710,7 @@ export const mockState: MockBackendState = {
   ],
 
   // Cart data extracted from CartItems component
-  carts: [
-    {
-      id: "demo-cart",
-      userId: "demo-user",
-      items: [
-        {
-          productId: "iphone-15-pro",
-          quantity: 1,
-          price: 999.99,
-          name: "iPhone 15 Pro",
-          variant: "Space Black, 256GB",
-        },
-        {
-          productId: "airpods-pro",
-          quantity: 2,
-          price: 199.99,
-          name: "AirPods Pro",
-          variant: "2nd Generation",
-        },
-        {
-          productId: "apple-watch-series-9",
-          quantity: 1,
-          price: 399.99,
-          name: "Apple Watch Series 9",
-          variant: "Midnight, 45mm",
-        },
-      ],
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
-  ],
+  carts: [],
 
   // Empty arrays for other state - these would be populated by user interactions
   checkouts: [],
